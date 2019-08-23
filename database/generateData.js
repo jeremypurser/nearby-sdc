@@ -1,3 +1,5 @@
+// file is used to generate data using faker npm, will generate a json file when file is run
+
 const faker = require('faker');
 const fs = require('fs');
 
@@ -25,7 +27,7 @@ var generateUsers = function () {
         'max': 5
       });
       let nearId = faker.random.number({
-        'min': 0,
+        'min': 1,
         'max': 100
       });
       let num = faker.random.number({
