@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const connect = require('./dbConnect');
+const db = require('./index.js');
+const NearbyHouse = require('./NearbyHouse.js');
 const Promise = require('bluebird');
 
 
@@ -12506,27 +12507,25 @@ const houses = [
 	}
 ];
 
-const seedData = function() { // need to fix this, now just creating based on incorrect data format
-	// connect.NearbyHouse.create(houses)
-	// 	.then(() => connect.db.close());
+const seedData = function() {
 	Promise.each(houses, (house) => {
 		var parentHouseId = house.id;
-		return Promise.each(house.nearby, (nearbyHouse) => {
+		return Promise.each(house.nearby, (nearby) => {
 			var newNearbyHouse = {
 				parentHouseId: parentHouseId,
-				nearbyNum: nearbyHouse.nearId,
-				imgUrl: nearbyHouse.imgUrl,
-				location: nearbyHouse.location,
-				type: nearbyHouse.type,
-				title: nearbyHouse.title,
-				cost: nearbyHouse.cost,
-				stars: nearbyHouse.stars,
-				reviewCount: nearbyHouse.reviewCount
+				nearbyNum: nearby.nearId,
+				imgUrl: nearby.imgUrl,
+				location: nearby.location,
+				type: nearby.type,
+				title: nearby.title,
+				cost: nearby.cost,
+				stars: nearby.stars,
+				reviewCount: nearby.reviewCount
 			};
-			return connect.NearbyHouse.create([newNearbyHouse]);
+			return NearbyHouse.create([newNearbyHouse]);
 		})
 	})
-	.then(() => connect.db.close());
+	.then(() => db.close());
 };
 
 

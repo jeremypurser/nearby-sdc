@@ -1,16 +1,6 @@
 const mongoose = require('mongoose');
-const mongoDBUrl = 'mongodb://localhost/nearbyPlaces';
 
-
-mongoose.connect(mongoDBUrl, { useNewUrlParser: true }, function(err, client) {
-  if (err) {
-    console.log(err)
-  }
-});
-
-const db = mongoose.connection;
 const Schema = mongoose.Schema;
-const collection = db.collection('nearbyhouses');
 
 var nearbySchema = new Schema({
   parentHouseId: Number,
@@ -27,7 +17,4 @@ var nearbySchema = new Schema({
 var NearbyHouse = mongoose.model('NearbyHouse', nearbySchema);
 
 
-module.exports = {
-  NearbyHouse: NearbyHouse,
-  db: db
-};
+module.exports = NearbyHouse;
