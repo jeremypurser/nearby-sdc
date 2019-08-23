@@ -7,7 +7,8 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start-data": "node ./database/seed.js"
+    "start-data": "node ./database/seed.js",
+    "start-server": "node ./server/index.js"
   },
   "dependencies": {
     "bluebird": "^3.5.5",
