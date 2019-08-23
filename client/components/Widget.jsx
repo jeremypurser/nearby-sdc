@@ -1,4 +1,5 @@
 import React from 'react';
+import Carousel from './Carousel.jsx';
 
 class Widget extends React.Component {
   constructor() {
@@ -9,6 +10,7 @@ class Widget extends React.Component {
     return (
       <div id='morePlaces'>
         <h2>More places to stay</h2>
+        < Carousel />
       </div>
     )
   }
