@@ -1,4 +1,5 @@
 import React from 'react';
+import House from './House.jsx';
 
 
 
@@ -15,23 +16,34 @@ class Carousel extends React.Component {
 
 
   render() {
-    const style = {
-      float: 'left',
-      width: '100px'
+    const buttonStyle = {
+      display: 'flex',
+      textAlign: 'center',
+      justifyContent: 'center'
     };
+    const buttonDiv = {
+      float: 'left',
+      width: '100px',
+      height: '500px',
+      display: 'flex',
+      textAlign: 'center',
+      justifyContent: 'center'
+    };
+    const divStyle = {
+      width: '1500px',
+      height: '500px'
+    }
 
     return (
-      <div className='carousel'>
-        <div className='button' style={style}>
-          <button>X</button>
+      <div className='carousel' style={divStyle}>
+        <div className='button' style={buttonDiv}>
+          <button style={buttonStyle}>X</button>
         </div>
-
-        <h1 style={style}>house1</h1>
-        <h1 style={style}>house2</h1>
-        <h1 style={style}>house3</h1>
-
-        <div className='button' style={style}>
-          <button>X</button>
+        < House />
+        < House />
+        < House />
+        <div className='button' style={buttonDiv}>
+          <button style={buttonStyle}>X</button>
         </div>
       </div>
     )
