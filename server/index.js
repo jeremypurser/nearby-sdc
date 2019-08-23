@@ -6,6 +6,7 @@ const app = express();
 const port = 3003;
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(__dirname + '/../public'));
 
 app.get('/', (req, res) => {
   NearbyHouse.find(({parentHouseId: 1}))
