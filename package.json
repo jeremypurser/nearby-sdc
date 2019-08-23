@@ -1,17 +1,31 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
+  "name": "nearby-service-repo",
+  "description": "> Project description",
+  "author": "Tiffany Lee",
+  "license": "ISC",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
+    "start-data": "node ./database/seed.js"
   },
   "dependencies": {
+    "bluebird": "^3.5.5",
+    "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "mongoose": "^5.6.10"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
-  }
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git"
+  },
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/housemania/nearby-service-repo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/housemania/nearby-service-repo/issues"
+  },
+  "homepage": "https://github.com/housemania/nearby-service-repo#readme"
 }
