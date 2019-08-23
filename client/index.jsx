@@ -1,4 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Widget from './components/Widget.jsx'
 
-ReactDOM.render(<div>Hello???</div>, document.getElementById('root'));
+ReactDOM.render(< Widget />, document.getElementById('root'));
