@@ -6,7 +6,9 @@ class Widget extends React.Component {
   constructor() {
     super()
     this.state = {
-      currentHouse: 1
+      currentHouse: 1,
+      startIndex: 0,
+      endIndex: 3,
     }
   }
 
@@ -14,16 +16,25 @@ class Widget extends React.Component {
     this.getNearbyHouses(this.state.currentHouse);
   }
 
-  changeHouses(houses) {
+  updateHouseList(houses) {
     this.setState({
-      houses: houses
+      nearbyHouseList: houses
+    })
+  }
+
+  getDisplayHouses() {
+    const start = this.state.startIndex;
+    const end = this.state.endIndex;
+    this.setState( {
+      displayHouses: this.state.nearbyHouseList.slice(start, end)
     })
   }
 
   getNearbyHouses(id) {
     axios.get(`/house/${id}`)
       .then((houses) => {
-        this.changeHouses(houses.data);
+        this.updateHouseList(houses.data);
+        this.getDisplayHouses();
       })
       .catch((error) => {
         console.log(`error getting houses ${error}`);
@@ -34,7 +45,7 @@ class Widget extends React.Component {
     return (
       <div id='morePlaces'>
         <h2>More places to stay</h2>
-        < Carousel />
+        < Carousel houses={this.state.houses}/>
       </div>
     )
   }

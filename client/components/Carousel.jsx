@@ -7,12 +7,14 @@ class Carousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      startIndex: 0,
-      endIndex: 2,
+      // startIndex: 0,
+      // endIndex: 3,
       leftButton: false,
-      rightButton: true
+      rightButton: true,
+      // displayHouses: []
     }
   }
+
 
 
   render() {
