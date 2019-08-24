@@ -1,5 +1,6 @@
 import React from 'react';
 import House from './House.jsx';
+import Button from './Button.jsx';
 
 
 
@@ -14,7 +15,6 @@ class Carousel extends React.Component {
 
   buttonClickHandler(event) {
     this.props.shiftDisplay(event.target.value);
-    // console.log(event.target.value);
   }
 
 
@@ -40,17 +40,15 @@ class Carousel extends React.Component {
 
     return (
       <div className='carousel' style={divStyle}>
-        <div className='button' style={buttonDiv}>
-          <button onClick={this.buttonClickHandler.bind(this)} value='right' style={buttonStyle}>X</button>
-        </div>
+
+         {this.props.start === 0 ? <div style={buttonDiv}></div> : <Button value='right' buttonClickHandler={this.buttonClickHandler.bind(this)}/>}
+
         <div className='houseDisplay'>
           {this.props.displayHouses ? this.props.displayHouses.map((house) => {
             return <House changeCurrentHouse={this.props.changeCurrentHouse} house={house} key={house._id}/>
           }): null}
         </div>
-        <div className='button' style={buttonDiv}>
-          <button onClick={this.buttonClickHandler.bind(this)} value='left' style={buttonStyle}>X</button>
-        </div>
+        {this.props.end === 12 ? <div style={buttonDiv}></div> : <Button value='left' buttonClickHandler={this.buttonClickHandler.bind(this)}/>}
       </div>
     )
   }
