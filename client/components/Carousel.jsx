@@ -12,6 +12,11 @@ class Carousel extends React.Component {
     }
   }
 
+  buttonClickHandler(event) {
+    this.props.shiftDisplay(event.target.value);
+    // console.log(event.target.value);
+  }
+
 
 
   render() {
@@ -36,7 +41,7 @@ class Carousel extends React.Component {
     return (
       <div className='carousel' style={divStyle}>
         <div className='button' style={buttonDiv}>
-          <button style={buttonStyle}>X</button>
+          <button onClick={this.buttonClickHandler.bind(this)} value='right' style={buttonStyle}>X</button>
         </div>
         <div className='houseDisplay'>
           {this.props.displayHouses ? this.props.displayHouses.map((house) => {
@@ -44,7 +49,7 @@ class Carousel extends React.Component {
           }): null}
         </div>
         <div className='button' style={buttonDiv}>
-          <button style={buttonStyle}>X</button>
+          <button onClick={this.buttonClickHandler.bind(this)} value='left' style={buttonStyle}>X</button>
         </div>
       </div>
     )

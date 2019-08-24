@@ -12,6 +12,25 @@ class Widget extends React.Component {
     }
   }
 
+  shiftDisplay(side) {
+    if (side === 'right') {
+      let newStart = this.state.startIndex - 1;
+      let newEnd = this.state.endIndex - 1;
+      this.setState({
+        startIndex: newStart,
+        endIndex: newEnd
+      })
+    } else {
+      let newStart = this.state.startIndex + 1;
+      let newEnd = this.state.endIndex + 1;
+      this.setState({
+        startIndex: newStart,
+        endIndex: newEnd
+      })
+    }
+    this.getDisplayHouses();
+  }
+
   changeCurrentHouse(houseId) {
     this.setState({
       currentHouse: houseId
@@ -52,7 +71,7 @@ class Widget extends React.Component {
     return (
       <div id='morePlaces'>
         <h2>More places to stay</h2>
-        < Carousel changeCurrentHouse={this.changeCurrentHouse.bind(this)} displayHouses={this.state.displayHouses}/>
+        < Carousel shiftDisplay={this.shiftDisplay.bind(this)} changeCurrentHouse={this.changeCurrentHouse.bind(this)} displayHouses={this.state.displayHouses}/>
       </div>
     )
   }
