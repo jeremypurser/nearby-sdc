@@ -12,6 +12,13 @@ class Widget extends React.Component {
     }
   }
 
+  changeCurrentHouse(houseId) {
+    this.setState({
+      currentHouse: houseId
+    });
+    this.getNearbyHouses(houseId);
+  }
+
   componentDidMount() {
     this.getNearbyHouses(this.state.currentHouse);
   }
@@ -45,7 +52,7 @@ class Widget extends React.Component {
     return (
       <div id='morePlaces'>
         <h2>More places to stay</h2>
-        < Carousel displayHouses={this.state.displayHouses}/>
+        < Carousel changeCurrentHouse={this.changeCurrentHouse.bind(this)} displayHouses={this.state.displayHouses}/>
       </div>
     )
   }

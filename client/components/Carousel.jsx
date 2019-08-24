@@ -40,7 +40,7 @@ class Carousel extends React.Component {
         </div>
         <div className='houseDisplay'>
           {this.props.displayHouses ? this.props.displayHouses.map((house) => {
-            return <House house={house} key={house._id}/>
+            return <House changeCurrentHouse={this.props.changeCurrentHouse} house={house} key={house._id}/>
           }): null}
         </div>
         <div className='button' style={buttonDiv}>
