@@ -45,7 +45,7 @@ class Widget extends React.Component {
     return (
       <div id='morePlaces'>
         <h2>More places to stay</h2>
-        < Carousel houses={this.state.houses}/>
+        < Carousel displayHouses={this.state.displayHouses}/>
       </div>
     )
   }
