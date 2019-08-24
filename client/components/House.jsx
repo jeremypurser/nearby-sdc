@@ -1,4 +1,5 @@
 import React from 'react';
+import Stars from './Stars.jsx';
 
 class House extends React.Component {
   constructor(props){
@@ -34,7 +35,7 @@ class House extends React.Component {
           <h5>{this.props.house.cost}</h5>
         </div>
         <div className='stars'>
-          <h5>{this.props.house.stars} stars {this.props.house.reviewCount}</h5>
+          <h5><Stars rating={this.props.house.stars} /> {this.props.house.reviewCount}</h5>
         </div>
 
       </div>
