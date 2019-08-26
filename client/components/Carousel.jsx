@@ -1,18 +1,22 @@
 import React from 'react';
 import House from './House.jsx';
+import Button from './Button.jsx';
 
 
 
 class Carousel extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      startIndex: 0,
-      endIndex: 2,
-      leftButton: false,
-      rightButton: true
-    }
+    // this.state = {
+    //   leftButton: false,
+    //   rightButton: true,
+    // }
   }
+
+  buttonClickHandler(event) {
+    this.props.shiftDisplay(event.target.value);
+  }
+
 
 
   render() {
@@ -36,14 +40,16 @@ class Carousel extends React.Component {
 
     return (
       <div className='carousel' style={divStyle}>
-        <div className='button' style={buttonDiv}>
-          <button style={buttonStyle}>X</button>
+        <div style={buttonDiv}>
+          {this.props.start === 0 ? <div style={buttonDiv}></div> : <Button value='right' buttonClickHandler={this.buttonClickHandler.bind(this)}/>}
         </div>
-        < House />
-        < House />
-        < House />
-        <div className='button' style={buttonDiv}>
-          <button style={buttonStyle}>X</button>
+        <div className='houseDisplay'>
+          {this.props.displayHouses ? this.props.displayHouses.map((house) => {
+            return <House changeCurrentHouse={this.props.changeCurrentHouse} house={house} key={house._id}/>
+          }): null}
+        </div>
+        <div style={buttonDiv}>
+          {this.props.end === 12 ? <div style={buttonDiv}></div> : <Button value='left' buttonClickHandler={this.buttonClickHandler.bind(this)}/>}
         </div>
       </div>
     )
