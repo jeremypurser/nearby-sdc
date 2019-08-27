@@ -24,7 +24,7 @@ const buttonStyle = {
 
 const Button = (props) => {
   return (
-    <button className='button' style={buttonStyle} onClick={props.buttonClickHandler} value={props.value}> {props.value === 'right' ?<FontAwesomeIcon icon={faChevronLeft} size='2x'/> : <FontAwesomeIcon icon={faChevronRight} size='2x'/>}</button>
+    <button className='button' style={buttonStyle} onClick={props.buttonClickHandler} value={props.value}> {props.value === 'right' ?<FontAwesomeIcon id='right' icon={faChevronLeft} size='2x'/> : <FontAwesomeIcon icon={faChevronRight} size='2x'/>}</button>
   )
 }
 
