@@ -7,10 +7,6 @@ import Button from './Button.jsx';
 class Carousel extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   leftButton: false,
-    //   rightButton: true,
-    // }
   }
 
   buttonClickHandler(event) {
@@ -40,7 +36,7 @@ class Carousel extends React.Component {
 
     return (
       <div className='carousel' style={divStyle}>
-        <div style={buttonDiv}>
+        <div className='buttonDiv' style={buttonDiv}>
           {this.props.start === 0 ? <div style={buttonDiv}></div> : <Button value='right' buttonClickHandler={this.buttonClickHandler.bind(this)}/>}
         </div>
         <div className='houseDisplay'>
@@ -48,7 +44,7 @@ class Carousel extends React.Component {
             return <House changeCurrentHouse={this.props.changeCurrentHouse} house={house} key={house._id}/>
           }): null}
         </div>
-        <div style={buttonDiv}>
+        <div className='buttonDiv' style={buttonDiv}>
           {this.props.end === 12 ? <div style={buttonDiv}></div> : <Button value='left' buttonClickHandler={this.buttonClickHandler.bind(this)}/>}
         </div>
       </div>

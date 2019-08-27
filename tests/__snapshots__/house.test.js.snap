@@ -1,0 +1,371 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component functionality should render correctly 1`] = `
+<button
+  className="button"
+  style={
+    Object {
+      "backgroundColor": "Transparent",
+      "border": "none",
+      "float": "left",
+      "outline": "none",
+      "overflow": "hidden",
+    }
+  }
+>
+   
+  <svg
+    aria-hidden="true"
+    className="svg-inline--fa fa-chevron-right fa-w-10 fa-2x "
+    data-icon="chevron-right"
+    data-prefix="fas"
+    focusable="false"
+    role="img"
+    style={Object {}}
+    viewBox="0 0 320 512"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+      fill="currentColor"
+      style={Object {}}
+    />
+  </svg>
+</button>
+`;
+
+exports[`Test Carousel component functionality does not break with empty displayHouses array 1`] = `
+<button
+  className="button"
+  style={
+    Object {
+      "backgroundColor": "Transparent",
+      "border": "none",
+      "float": "left",
+      "outline": "none",
+      "overflow": "hidden",
+    }
+  }
+>
+   
+  <FontAwesomeIcon
+    border={false}
+    className=""
+    fixedWidth={false}
+    flip={null}
+    icon={
+      Object {
+        "icon": Array [
+          320,
+          512,
+          Array [],
+          "f054",
+          "M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z",
+        ],
+        "iconName": "chevron-right",
+        "prefix": "fas",
+      }
+    }
+    inverse={false}
+    listItem={false}
+    mask={null}
+    pull={null}
+    pulse={false}
+    rotation={null}
+    size="2x"
+    spin={false}
+    symbol={false}
+    title=""
+    transform={null}
+  />
+</button>
+`;
+
+exports[`Test Carousel component functionality returns null if no houses to map through 1`] = `
+<button
+  className="button"
+  style={
+    Object {
+      "backgroundColor": "Transparent",
+      "border": "none",
+      "float": "left",
+      "outline": "none",
+      "overflow": "hidden",
+    }
+  }
+>
+   
+  <FontAwesomeIcon
+    border={false}
+    className=""
+    fixedWidth={false}
+    flip={null}
+    icon={
+      Object {
+        "icon": Array [
+          320,
+          512,
+          Array [],
+          "f054",
+          "M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z",
+        ],
+        "iconName": "chevron-right",
+        "prefix": "fas",
+      }
+    }
+    inverse={false}
+    listItem={false}
+    mask={null}
+    pull={null}
+    pulse={false}
+    rotation={null}
+    size="2x"
+    spin={false}
+    symbol={false}
+    title=""
+    transform={null}
+  />
+</button>
+`;
+
+exports[`Test Carousel component functionality should render correctly 1`] = `
+<button
+  className="button"
+  style={
+    Object {
+      "backgroundColor": "Transparent",
+      "border": "none",
+      "float": "left",
+      "outline": "none",
+      "overflow": "hidden",
+    }
+  }
+>
+   
+  <svg
+    aria-hidden="true"
+    className="svg-inline--fa fa-chevron-right fa-w-10 fa-2x "
+    data-icon="chevron-right"
+    data-prefix="fas"
+    focusable="false"
+    role="img"
+    style={Object {}}
+    viewBox="0 0 320 512"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+      fill="currentColor"
+      style={Object {}}
+    />
+  </svg>
+</button>
+`;
+
+exports[`Test House component functionality should render correctly 1`] = `
+<div
+  className="house"
+  onClick={[Function]}
+  style={
+    Object {
+      "float": "left",
+      "margin": "20px 20px 20px 20px",
+    }
+  }
+>
+  <div
+    className="image"
+  >
+    <img
+      src="https://housemania.s3-us-west-1.amazonaws.com/annie-spratt-BmjlyHwV1S0-unsplash.jpg"
+      style={
+        Object {
+          "height": "200px",
+          "width": "250px",
+        }
+      }
+    />
+  </div>
+  <div
+    className="layout"
+  >
+    <h5>
+      apartment
+      : 
+      Saratoga
+    </h5>
+  </div>
+  <div
+    className="description"
+  >
+    <h3>
+      quaint house
+    </h3>
+  </div>
+  <div
+    className="cost"
+  >
+    <h5>
+      $309/night
+    </h5>
+  </div>
+  <div
+    className="stars"
+  >
+    <h5>
+      <div
+        className="star"
+        style={
+          Object {
+            "display": "inline",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "display": "inline",
+              "justifyContent": "center",
+              "textAlign": "center",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-star fa-w-18 "
+            data-icon="star"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 576 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "inline",
+              "justifyContent": "center",
+              "textAlign": "center",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-star fa-w-18 "
+            data-icon="star"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 576 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "inline",
+              "justifyContent": "center",
+              "textAlign": "center",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-star fa-w-18 "
+            data-icon="star"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 576 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "inline",
+              "justifyContent": "center",
+              "textAlign": "center",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-star fa-w-18 "
+            data-icon="star"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 576 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "inline",
+              "justifyContent": "center",
+              "textAlign": "center",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-star fa-w-18 "
+            data-icon="star"
+            data-prefix="far"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 576 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+        </div>
+      </div>
+       
+      20
+    </h5>
+  </div>
+</div>
+`;
