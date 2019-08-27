@@ -13,29 +13,31 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Widget Component 
 describe('Test Widget component functionality', () => {
   const clickFn = jest.fn();
-  const props = {
-    imgUrl: "https://housemania.s3-us-west-1.amazonaws.com/annie-spratt-BmjlyHwV1S0-unsplash.jpg",
-    cost: '$309/night',
-    location: 'Saratoga',
-    type: 'apartment',
-    title: 'quaint house',
-    stars: 4,
-    reviewCount: 20
-  }; 
+  const options = {
+    disableLifecycleMethods: true
+  }
 
   it('should render correctly', () => {
-    const component = renderer.create(<Widget />);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    const component = shallow(<Widget />, options);
+    // let tree = component.toJSON();
+    expect(component).toMatchSnapshot();
   })
 
-  // it('house button click call handleClick to run changeCurrentHouse', () => {
-  //   const component = shallow(<House changeCurrentHouse={clickFn} house={props}/>);
-  //   component
-  //     .find('.house')
-  //     .simulate('click');
-  //   expect(clickFn).toHaveBeenCalled();
-  // });
+  it('should call componentDidMount once', () => {
+    // componentDidMountSpy = spyOn(Widget.prototype, 'componentDidMount');
+    const component = shallow(<Widget getNearbyHouses={clickFn}/>);
+    // expect(componentDidMountSpy).toHaveBeenCalledTimes(1);
+   
+    const instance = component.instance();
+    jest.spyOn(instance, 'getNearbyHouses');
+    instance.componentDidMount();
+    expect(instance.getNearbyHouses).toHaveBeenCalledTimes(1);
+  })
+
+  it('renders <Carousel /> one time', () => {
+    const component = shallow(<Widget />, options);
+    expect(component.find(Carousel)).toHaveLength(1);
+  })
 });
 
 // House Component 
