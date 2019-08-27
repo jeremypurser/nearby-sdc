@@ -2,12 +2,41 @@ import { mount, shallow, render } from 'enzyme';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
+import Widget from '../client/components/Widget.jsx';
 import House from '../client/components/House.jsx';
 import Button from '../client/components/Button.jsx';
 import Carousel from '../client/components/Carousel.jsx';
 import Stars from '../client/components/Stars.jsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
+// Widget Component 
+describe('Test Widget component functionality', () => {
+  const clickFn = jest.fn();
+  const props = {
+    imgUrl: "https://housemania.s3-us-west-1.amazonaws.com/annie-spratt-BmjlyHwV1S0-unsplash.jpg",
+    cost: '$309/night',
+    location: 'Saratoga',
+    type: 'apartment',
+    title: 'quaint house',
+    stars: 4,
+    reviewCount: 20
+  }; 
+
+  it('should render correctly', () => {
+    const component = renderer.create(<Widget />);
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  })
+
+  // it('house button click call handleClick to run changeCurrentHouse', () => {
+  //   const component = shallow(<House changeCurrentHouse={clickFn} house={props}/>);
+  //   component
+  //     .find('.house')
+  //     .simulate('click');
+  //   expect(clickFn).toHaveBeenCalled();
+  // });
+});
 
 // House Component 
 describe('Test House component functionality', () => {
@@ -76,6 +105,7 @@ describe('Test Carousel component functionality', () => {
   it('renders <House /> one times', () => {
     const component = shallow(<Carousel />);
     component.setProps({
+      key: 1,
       displayHouses: [
         {
           imgUrl: "https://housemania.s3-us-west-1.amazonaws.com/annie-spratt-BmjlyHwV1S0-unsplash.jpg",
@@ -149,17 +179,11 @@ describe('Stars component functionality', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  // it('button value should be right', () => { // can write more detailed to check right icon is rendered 
-  //   const component = shallow(<Button value={'right'}/>);
-  //   component
-  //   expect(component.prop('value')).toEqual('right');
-  // });
-
-  // it('button click call handleClick to run shift the display', () => {
-  //   const component = shallow(<Button buttonClickHandler={clickFn}/>);
-  //   component
-  //     .find('.button')
-  //     .simulate('click');
-  //   expect(clickFn).toHaveBeenCalled();
-  // });
+  it('renders <FontAwesomIcon /> five times for every rating', () => {
+    const component = shallow(<Stars />);
+    component.setProps({
+      rating: 4
+    })
+    expect(component.find(FontAwesomeIcon)).toHaveLength(5);
+  })
 });
