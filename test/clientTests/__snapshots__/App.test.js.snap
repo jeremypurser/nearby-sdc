@@ -2,16 +2,7 @@
 
 exports[`Button component functionality should render correctly 1`] = `
 <button
-  className="button"
-  style={
-    Object {
-      "backgroundColor": "Transparent",
-      "border": "none",
-      "float": "left",
-      "outline": "none",
-      "overflow": "hidden",
-    }
-  }
+  className="button sc-htpNat hjEtpR"
 >
    
   <svg
@@ -36,13 +27,7 @@ exports[`Button component functionality should render correctly 1`] = `
 
 exports[`Stars component functionality should render correctly 1`] = `
 <div
-  className="star"
-  style={
-    Object {
-      "display": "inline",
-      "whiteSpace": "nowrap",
-    }
-  }
+  className="star sc-bdVaJa gcmXMp"
 />
 `;
 
@@ -137,6 +122,7 @@ exports[`Test House component functionality should render correctly 1`] = `
       apartment
       : 
       Saratoga
+       
     </h5>
   </div>
   <div
@@ -144,6 +130,7 @@ exports[`Test House component functionality should render correctly 1`] = `
   >
     <h3>
       quaint house
+       
     </h3>
   </div>
   <div
@@ -151,6 +138,7 @@ exports[`Test House component functionality should render correctly 1`] = `
   >
     <h5>
       $309/night
+       
     </h5>
   </div>
   <div
@@ -158,23 +146,10 @@ exports[`Test House component functionality should render correctly 1`] = `
   >
     <h5>
       <div
-        className="star"
-        style={
-          Object {
-            "display": "inline",
-            "whiteSpace": "nowrap",
-          }
-        }
+        className="star sc-bdVaJa gcmXMp"
       >
         <div
-          style={
-            Object {
-              "display": "inline",
-              "justifyContent": "center",
-              "textAlign": "center",
-              "whiteSpace": "nowrap",
-            }
-          }
+          className="sc-bwzfXH dHMfna"
         >
           <svg
             aria-hidden="true"
@@ -195,14 +170,7 @@ exports[`Test House component functionality should render correctly 1`] = `
           </svg>
         </div>
         <div
-          style={
-            Object {
-              "display": "inline",
-              "justifyContent": "center",
-              "textAlign": "center",
-              "whiteSpace": "nowrap",
-            }
-          }
+          className="sc-bwzfXH dHMfna"
         >
           <svg
             aria-hidden="true"
@@ -223,14 +191,7 @@ exports[`Test House component functionality should render correctly 1`] = `
           </svg>
         </div>
         <div
-          style={
-            Object {
-              "display": "inline",
-              "justifyContent": "center",
-              "textAlign": "center",
-              "whiteSpace": "nowrap",
-            }
-          }
+          className="sc-bwzfXH dHMfna"
         >
           <svg
             aria-hidden="true"
@@ -251,14 +212,7 @@ exports[`Test House component functionality should render correctly 1`] = `
           </svg>
         </div>
         <div
-          style={
-            Object {
-              "display": "inline",
-              "justifyContent": "center",
-              "textAlign": "center",
-              "whiteSpace": "nowrap",
-            }
-          }
+          className="sc-bwzfXH dHMfna"
         >
           <svg
             aria-hidden="true"
@@ -279,14 +233,7 @@ exports[`Test House component functionality should render correctly 1`] = `
           </svg>
         </div>
         <div
-          style={
-            Object {
-              "display": "inline",
-              "justifyContent": "center",
-              "textAlign": "center",
-              "whiteSpace": "nowrap",
-            }
-          }
+          className="sc-bwzfXH dHMfna"
         >
           <svg
             aria-hidden="true"
