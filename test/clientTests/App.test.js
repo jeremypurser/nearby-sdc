@@ -32,7 +32,7 @@ describe('Test Widget component functionality', () => {
     expect(instance.getNearbyHouses).toHaveBeenCalledTimes(1);
   })
 
-  it('should render Carousel if state.view is true',  () => { // this one 
+  it('should render Carousel if state.view is true',  () => { 
     const component = shallow(<Widget />, options);
     component.setState({view: true});
     component.update();
@@ -71,9 +71,8 @@ describe('Test House component functionality', () => {
   }; 
 
   it('should render correctly', () => {
-    const component = renderer.create(<House house={props}></House>);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    const component = shallow(<House house={props}/>);
+    expect(component).toMatchSnapshot();
   })
 
   it('house button click call handleClick to run changeCurrentHouse', () => {
@@ -115,7 +114,7 @@ describe('Test Carousel component functionality', () => {
     expect(component.find(House)).toHaveLength(1);
   })
 
-  it('renders <Button /> two times for normal display', () => {
+  it('renders <Button/> two times for normal display', () => {
     const component = shallow(<Carousel />, options);
     component.setState({
       endIndex: 5,
@@ -173,9 +172,12 @@ describe('Button component functionality', () => {
   }
 
   it('should render correctly', () => {
-    const component = renderer.create(<Button props={props}/>);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    // const component = renderer.create(<Button props={props}/>);
+    // let tree = component.toJSON();
+    // expect(tree).toMatchSnapshot();
+
+    const component = shallow(<Button />);
+    expect(component).toMatchSnapshot();
   });
 
   it('button value should be right', () => { 
@@ -196,9 +198,12 @@ describe('Button component functionality', () => {
 // Test Stars Component
 describe('Stars component functionality', () => {
   it('should render correctly', () => {
-    const component = renderer.create(<Stars/>);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    // const component = renderer.create(<Stars/>);
+    // let tree = component.toJSON();
+    // expect(tree).toMatchSnapshot();
+
+    const component = shallow(<Stars />);
+    expect(component).toMatchSnapshot();
   });
 
   it('renders <FontAwesomIcon /> five times for every rating', () => {
