@@ -10,7 +10,8 @@
     "start-data": "node ./database/seed.js",
     "start-server": "nodemon node ./server/index.js",
     "dev-react": "webpack -d --watch",
-    "test": "jest --coverage"
+    "test-client": "jest --coverage",
+    "test": "mocha"
   },
   "dependencies": {
     "@babel/core": "^7.5.5",
@@ -27,6 +28,7 @@
     "babel-preset-env": "^1.7.0",
     "bluebird": "^3.5.5",
     "body-parser": "^1.19.0",
+    "chai-http": "^4.3.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "jquery": "^3.4.1",
@@ -38,11 +40,13 @@
   "devDependencies": {
     "@babel/preset-react": "^7.0.0",
     "axios-mock-adapter": "^1.17.0",
+    "chai": "^4.2.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.4.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
     "jest": "^24.9.0",
+    "mocha": "^6.2.0",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7"
   },
@@ -57,7 +61,7 @@
       "enzyme-to-json/serializer"
     ],
     "setupFiles": [
-      "./tests/setupTests.js"
+      "./clientTests/setupTests.js"
     ]
   },
   "bugs": {
