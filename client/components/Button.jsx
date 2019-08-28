@@ -29,11 +29,3 @@ const Button = (props) => {
 }
 
 export default Button;
-
-// const Button = (props) => {
-//   return (
-//     <button className='button' style={buttonStyle} onClick={props.buttonClickHandler} value={props.value}>X</button>
-//   )
-// }
-
-// export default Button;
