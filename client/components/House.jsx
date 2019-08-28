@@ -35,7 +35,7 @@ class House extends React.Component {
           <h5>{this.props.house.cost}</h5>
         </div>
         <div className='stars'>
-          <h5><Stars rating={this.props.house.stars} /> {this.props.house.reviewCount}</h5>
+          <h5><Stars key={this.props.house._id} rating={this.props.house.stars} /> {this.props.house.reviewCount}</h5>
         </div>
 
       </div>

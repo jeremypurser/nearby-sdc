@@ -24,13 +24,16 @@ const buttonStyle = {
 
 const Button = (props) => {
   return (
-    // <div className='button' style={buttonDiv}>
-      // <h1 style={buttonDiv} onClick={props.buttonClickHandler} value={props.value}><FontAwesomeIcon icon={faChevronRight} /></h1>
-      // <div style={buttonDiv} onClick={props.buttonClickHandler} value={props.value}><FontAwesomeIcon icon={faChevronRight} /></div>
-      // <img onClick={props.buttonClickHandler} value={props.value}> {props.value === 'right' ?<FontAwesomeIcon icon={faChevronLeft} size='2x'/> : <FontAwesomeIcon icon={faChevronRight} size='2x'/>}</img>
-    <button style={buttonStyle} onClick={props.buttonClickHandler} value={props.value}> {props.value === 'right' ?<FontAwesomeIcon icon={faChevronLeft} size='2x'/> : <FontAwesomeIcon icon={faChevronRight} size='2x'/>}</button>
-    // </div>
+    <button className='button' style={buttonStyle} onClick={props.buttonClickHandler} value={props.value}> {props.value === 'right' ?<FontAwesomeIcon id='right' icon={faChevronLeft} size='2x'/> : <FontAwesomeIcon icon={faChevronRight} size='2x'/>}</button>
   )
 }
 
 export default Button;
+
+// const Button = (props) => {
+//   return (
+//     <button className='button' style={buttonStyle} onClick={props.buttonClickHandler} value={props.value}>X</button>
+//   )
+// }
+
+// export default Button;
