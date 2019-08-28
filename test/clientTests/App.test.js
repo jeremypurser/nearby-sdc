@@ -2,42 +2,59 @@ import { mount, shallow, render } from 'enzyme';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Widget from '../client/components/Widget.jsx';
-import House from '../client/components/House.jsx';
-import Button from '../client/components/Button.jsx';
-import Carousel from '../client/components/Carousel.jsx';
-import Stars from '../client/components/Stars.jsx';
+import Widget from '../../client/components/Widget.jsx';
+import House from '../../client/components/House.jsx';
+import Button from '../../client/components/Button.jsx';
+import Carousel from '../../client/components/Carousel.jsx';
+import Stars from '../../client/components/Stars.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import mockAxios from '../client/__mocks__/axios.js';
 
 
 // Widget Component 
 describe('Test Widget component functionality', () => {
-  const clickFn = jest.fn();
   const options = {
     disableLifecycleMethods: true
   }
 
   it('should render correctly', () => {
     const component = shallow(<Widget />, options);
-    // let tree = component.toJSON();
     expect(component).toMatchSnapshot();
   })
 
   it('should call componentDidMount once',  () => {
-    const component = shallow(<Widget/>);
-   
+    const componentFunc = jest.fn();
+    const component = shallow(<Widget/>, options);
+    component.instance().getNearbyHouses = componentFunc;
+    component.update();
     const instance = component.instance();
-    jest.spyOn(instance, 'getNearbyHouses');
     instance.componentDidMount();
     
     expect(instance.getNearbyHouses).toHaveBeenCalledTimes(1);
   })
 
-  // it('renders <Carousel /> one time', () => {  
-  //   const component = shallow(<Widget />, options);
-  //   expect(component.find(Carousel)).toHaveLength(1);
-  // })
+  it('should render Carousel if state.view is true',  () => { // this one 
+    const component = shallow(<Widget />, options);
+    component.setState({view: true});
+    component.update();
+    expect(component.find(Carousel)).toHaveLength(1);
+  })
+
+  it('should change currentHouse state to the id changeCurrentHouse is called with',  () => {
+    const component = shallow(<Widget />, options);
+    component.instance().getNearbyHouses = jest.fn();
+    component.update();
+    const instance = component.instance();
+    instance.changeCurrentHouse(4);
+    expect(component.state('currentHouse')).toBe(4);
+  })
+
+  it('should change update nearbyHouseList state to array of houses',  () => {
+    const houses = ['house1', 'house2', 'house3'];
+    const component = shallow(<Widget />, options);
+    const instance = component.instance();
+    instance.updateHouseList(houses);
+    expect(component.state('nearbyHouseList')).toBe(houses);
+  })
 });
 
 // House Component 
@@ -107,7 +124,6 @@ describe('Test Carousel component functionality', () => {
     expect(component.find('.buttonDiv')).toHaveLength(2);
   })
 
-
   it('should increase state.startIndex by 1 when shiftDisplay called with left',  () => {
     const component = shallow(<Carousel />, options);
     component.instance().getDisplayHouses = clickFn;
@@ -117,8 +133,6 @@ describe('Test Carousel component functionality', () => {
     instance.shiftDisplay('left');
     expect(component.state('startIndex')).toBe(1);
   })
-
-  
 
   it('should call shiftDisplay function with a side',  () => {
     const component = shallow(<Carousel />, options);
@@ -135,9 +149,6 @@ describe('Test Carousel component functionality', () => {
     component.instance().getDisplayHouses(1, 3);
     expect(component.instance().getDisplayHouses).toHaveBeenCalledWith(1,3);
   })
-
-
-
 
   it('should call componentDidMount once',  () => {
     const componentFunc = jest.fn();
@@ -167,7 +178,7 @@ describe('Button component functionality', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('button value should be right', () => { // can write more detailed to check right icon is rendered 
+  it('button value should be right', () => { 
     const component = shallow(<Button value={'right'}/>);
     component
     expect(component.prop('value')).toEqual('right');
