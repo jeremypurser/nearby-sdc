@@ -41,7 +41,7 @@ class Widget extends React.Component {
   }
 
   componentDidMount() {
-    this.getNearbyHouses(this.state.currentHouse);
+    this.getNearbyHouses(1);
   }
 
   updateHouseList(houses) {
@@ -53,7 +53,7 @@ class Widget extends React.Component {
   getDisplayHouses(start, end) {
     this.setState( {
       displayHouses: this.state.nearbyHouseList.slice(start, end)
-    })
+    }) 
   }
 
   getNearbyHouses(id) {

@@ -8,6 +8,7 @@ import Button from '../client/components/Button.jsx';
 import Carousel from '../client/components/Carousel.jsx';
 import Stars from '../client/components/Stars.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import mockAxios from '../client/__mocks__/axios.js';
 
 
 // Widget Component 
@@ -17,24 +18,53 @@ describe('Test Widget component functionality', () => {
     disableLifecycleMethods: true
   }
 
+  jest.mock('axios', () => {
+    const houseArr = [
+      {
+        imgUrl: "https://housemania.s3-us-west-1.amazonaws.com/annie-spratt-BmjlyHwV1S0-unsplash.jpg",
+        cost: '$309/night',
+        location: 'Saratoga',
+        type: 'apartment',
+        title: 'quaint house',
+        stars: 4,
+        reviewCount: 20
+      }
+    ];
+    return {
+      get: jest.fn(() => Promise.resolve(houseArr)),
+    };
+  });
+  const axios = require('axios');
+
+  // it('should get data when component mounts', () => {
+  //   const app = shallow(< Widget />);
+  //   app.setState({
+  //     nearbyHouseList: []
+  //   })
+  //   app
+  //     .instance()
+  //     .componentDidMount();
+  //     expect(axios.get).toHaveBeenCalled();
+  // });
+  
+
   it('should render correctly', () => {
     const component = shallow(<Widget />, options);
     // let tree = component.toJSON();
     expect(component).toMatchSnapshot();
   })
 
-  it('should call componentDidMount once', () => {
-    // componentDidMountSpy = spyOn(Widget.prototype, 'componentDidMount');
-    const component = shallow(<Widget getNearbyHouses={clickFn}/>);
-    // expect(componentDidMountSpy).toHaveBeenCalledTimes(1);
+  it('should call componentDidMount once',  () => {
+    const component = shallow(<Widget/>);
    
     const instance = component.instance();
     jest.spyOn(instance, 'getNearbyHouses');
     instance.componentDidMount();
+    
     expect(instance.getNearbyHouses).toHaveBeenCalledTimes(1);
   })
 
-  it('renders <Carousel /> one time', () => {
+  it('renders <Carousel /> one time', () => {  
     const component = shallow(<Widget />, options);
     expect(component.find(Carousel)).toHaveLength(1);
   })
