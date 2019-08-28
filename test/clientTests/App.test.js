@@ -172,10 +172,6 @@ describe('Button component functionality', () => {
   }
 
   it('should render correctly', () => {
-    // const component = renderer.create(<Button props={props}/>);
-    // let tree = component.toJSON();
-    // expect(tree).toMatchSnapshot();
-
     const component = shallow(<Button />);
     expect(component).toMatchSnapshot();
   });
@@ -198,10 +194,6 @@ describe('Button component functionality', () => {
 // Test Stars Component
 describe('Stars component functionality', () => {
   it('should render correctly', () => {
-    // const component = renderer.create(<Stars/>);
-    // let tree = component.toJSON();
-    // expect(tree).toMatchSnapshot();
-
     const component = shallow(<Stars />);
     expect(component).toMatchSnapshot();
   });
