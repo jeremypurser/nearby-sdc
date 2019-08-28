@@ -7,30 +7,8 @@ class Widget extends React.Component {
     super()
     this.state = {
       currentHouse: 1,
-      startIndex: 0,
-      endIndex: 3,
+      view: false
     }
-  }
-
-  shiftDisplay(side) {
-    if (side === 'right') {
-      let newStart = this.state.startIndex - 1;
-      let newEnd = this.state.endIndex - 1;
-      this.setState({
-        startIndex: newStart,
-        endIndex: newEnd
-      })
-      this.getDisplayHouses(newStart, newEnd);
-    } else if (side === 'left') {
-      let newStart = this.state.startIndex + 1;
-      let newEnd = this.state.endIndex + 1;
-      this.setState({
-        startIndex: newStart,
-        endIndex: newEnd
-      })
-      this.getDisplayHouses(newStart, newEnd);
-    }
-
   }
 
   changeCurrentHouse(houseId) {
@@ -50,17 +28,13 @@ class Widget extends React.Component {
     })
   }
 
-  getDisplayHouses(start, end) {
-    this.setState( {
-      displayHouses: this.state.nearbyHouseList.slice(start, end)
-    }) 
-  }
-
   getNearbyHouses(id) {
     axios.get(`/house/${id}`)
       .then((houses) => {
         this.updateHouseList(houses.data);
-        this.getDisplayHouses(0, 3);
+        this.setState({
+          view: true
+        });
       })
       .catch((error) => {
         console.log(`error getting houses ${error}`);
@@ -71,7 +45,7 @@ class Widget extends React.Component {
     return (
       <div id='morePlaces'>
         <h2>More places to stay</h2>
-        < Carousel shiftDisplay={this.shiftDisplay.bind(this)} changeCurrentHouse={this.changeCurrentHouse.bind(this)} displayHouses={this.state.displayHouses} start={this.state.startIndex} end={this.state.endIndex}/>
+        {this.state.view ? < Carousel key={this.state.currentHouse} changeCurrentHouse={this.changeCurrentHouse.bind(this)} nearbyHouseList={this.state.nearbyHouseList}/> : null}
       </div>
     )
   }
