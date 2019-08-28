@@ -10,8 +10,8 @@
     "start-data": "node ./database/seed.js",
     "start-server": "nodemon node ./server/index.js",
     "dev-react": "webpack -d --watch",
-    "test-client": "jest --coverage",
-    "test": "mocha"
+    "test": "jest --coverage",
+    "test-server": "mocha"
   },
   "dependencies": {
     "@babel/core": "^7.5.5",

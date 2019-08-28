@@ -18,36 +18,6 @@ describe('Test Widget component functionality', () => {
     disableLifecycleMethods: true
   }
 
-  jest.mock('axios', () => {
-    const houseArr = [
-      {
-        imgUrl: "https://housemania.s3-us-west-1.amazonaws.com/annie-spratt-BmjlyHwV1S0-unsplash.jpg",
-        cost: '$309/night',
-        location: 'Saratoga',
-        type: 'apartment',
-        title: 'quaint house',
-        stars: 4,
-        reviewCount: 20
-      }
-    ];
-    return {
-      get: jest.fn(() => Promise.resolve(houseArr)),
-    };
-  });
-  const axios = require('axios');
-
-  // it('should get data when component mounts', () => {
-  //   const app = shallow(< Widget />);
-  //   app.setState({
-  //     nearbyHouseList: []
-  //   })
-  //   app
-  //     .instance()
-  //     .componentDidMount();
-  //     expect(axios.get).toHaveBeenCalled();
-  // });
-  
-
   it('should render correctly', () => {
     const component = shallow(<Widget />, options);
     // let tree = component.toJSON();
@@ -64,10 +34,10 @@ describe('Test Widget component functionality', () => {
     expect(instance.getNearbyHouses).toHaveBeenCalledTimes(1);
   })
 
-  it('renders <Carousel /> one time', () => {  
-    const component = shallow(<Widget />, options);
-    expect(component.find(Carousel)).toHaveLength(1);
-  })
+  // it('renders <Carousel /> one time', () => {  
+  //   const component = shallow(<Widget />, options);
+  //   expect(component.find(Carousel)).toHaveLength(1);
+  // })
 });
 
 // House Component 
@@ -100,44 +70,19 @@ describe('Test House component functionality', () => {
 
 // Test Carousel Component 
 describe('Test Carousel component functionality', () => {
+  const options = {
+    disableLifecycleMethods: true
+  };
   const clickFn = jest.fn();
-  const propsCar = {
-    shiftDisplay: clickFn,
-    displayHouses: [
-      {
-        imgUrl: "https://housemania.s3-us-west-1.amazonaws.com/annie-spratt-BmjlyHwV1S0-unsplash.jpg",
-        cost: '$309/night',
-        location: 'Saratoga',
-        type: 'apartment',
-        title: 'quaint house',
-        stars: 4,
-        reviewCount: 20
-      }
-    ],
-    end: 4,
-    start: 1
-  }; 
-
+  
   it('should render correctly', () => {
-    const component = renderer.create(<Carousel/>);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  })
-
-  it('does not break with empty displayHouses array', () => {
-    const component = shallow(<Carousel displayHouses={[]}/>);
-    expect(component).toMatchSnapshot();
-  })
-
-  it('returns null if no houses to map through', () => {
-    const component = shallow(<Carousel/>);
+    const component = shallow(<Carousel />, options);
     expect(component).toMatchSnapshot();
   })
 
   it('renders <House /> one times', () => {
-    const component = shallow(<Carousel />);
-    component.setProps({
-      key: 1,
+    const component = shallow(<Carousel />, options);
+    component.setState({
       displayHouses: [
         {
           imgUrl: "https://housemania.s3-us-west-1.amazonaws.com/annie-spratt-BmjlyHwV1S0-unsplash.jpg",
@@ -154,21 +99,55 @@ describe('Test Carousel component functionality', () => {
   })
 
   it('renders <Button /> two times for normal display', () => {
-    const component = shallow(<Carousel />);
-    component.setProps({
-      end: 5,
-      start: 2
+    const component = shallow(<Carousel />, options);
+    component.setState({
+      endIndex: 5,
+      startIndex: 2
     })
     expect(component.find('.buttonDiv')).toHaveLength(2);
   })
 
-   it('renders <Button /> one times for display when start=0', () => {
-    const component = shallow(<Carousel />);
-    component.setProps({
-      end: 3,
-      start: 0
-    })
-    expect(component.find('.buttonDiv')).toHaveLength(2);
+
+  it('should increase state.startIndex by 1 when shiftDisplay called with left',  () => {
+    const component = shallow(<Carousel />, options);
+    component.instance().getDisplayHouses = clickFn;
+    component.update();
+    const instance = component.instance();
+    expect(component.state('startIndex')).toBe(0);
+    instance.shiftDisplay('left');
+    expect(component.state('startIndex')).toBe(1);
+  })
+
+  
+
+  it('should call shiftDisplay function with a side',  () => {
+    const component = shallow(<Carousel />, options);
+    component.instance().shiftDisplay = clickFn;
+    component.update();
+    component.instance().shiftDisplay('left');
+    expect(component.instance().shiftDisplay).toHaveBeenCalledWith('left');
+  })
+
+  it('should call getDisplayHouses function with a start and end index',  () => {
+    const component = shallow(<Carousel />, options);
+    component.instance().getDisplayHouses = clickFn;
+    component.update();
+    component.instance().getDisplayHouses(1, 3);
+    expect(component.instance().getDisplayHouses).toHaveBeenCalledWith(1,3);
+  })
+
+
+
+
+  it('should call componentDidMount once',  () => {
+    const componentFunc = jest.fn();
+    const component = shallow(<Carousel/>, options);
+    component.instance().getDisplayHouses = componentFunc;
+    component.update();
+    const instance = component.instance();
+    instance.componentDidMount();
+    
+    expect(instance.getDisplayHouses).toHaveBeenCalledTimes(1);
   })
 
 });

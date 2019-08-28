@@ -51,11 +51,6 @@ class Carousel extends React.Component {
 
 
   render() {
-    const buttonStyle = {
-      display: 'flex',
-      textAlign: 'center',
-      justifyContent: 'center'
-    };
     const buttonDiv = {
       float: 'left',
       width: '100px',
