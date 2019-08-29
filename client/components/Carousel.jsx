@@ -67,15 +67,30 @@ class Carousel extends React.Component {
     return (
       <CarouselContainer className='carousel'>
         <ButtonContainer className='buttonDiv'>
-          {this.state.startIndex === 0 ? <ButtonContainer></ButtonContainer> : <Button value='right' buttonClickHandler={this.buttonClickHandler.bind(this)}/>}
+          {this.state.startIndex === 0
+            ? <ButtonContainer></ButtonContainer>
+            : <Button
+                value='right'
+                buttonClickHandler={this.buttonClickHandler.bind(this)}
+              />}
         </ButtonContainer>
         <div className='houseDisplay'>
-          {this.state.displayHouses ? this.state.displayHouses.map((house) => {
-            return <House changeCurrentHouse={this.props.changeCurrentHouse} house={house} key={house._id}/>;
-          }) : null}
+          {this.state.displayHouses ? this.state.displayHouses.map((house) => (
+            <House
+              changeCurrentHouse={this.props.changeCurrentHouse}
+              house={house}
+              key={house._id}
+            />
+          ))
+            : null}
         </div>
         <ButtonContainer className='buttonDiv'>
-          {this.state.endIndex === 12 ? <ButtonContainer></ButtonContainer> : <Button value='left' buttonClickHandler={this.buttonClickHandler.bind(this)}/>}
+          {this.state.endIndex === 12
+            ? <ButtonContainer></ButtonContainer>
+            : <Button
+                value='left'
+                buttonClickHandler={this.buttonClickHandler.bind(this)}
+              />}
         </ButtonContainer>
       </CarouselContainer>
     );

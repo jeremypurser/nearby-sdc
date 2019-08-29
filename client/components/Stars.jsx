@@ -30,12 +30,11 @@ const Stars = (props) => {
 
   return (
     <StarContainer className='star'>
-      {starArr.map((star, index) => {
-        return (
+      {starArr.map((star, index) => (
         <Star key={index}>{(star === 1)
-          ? <FontAwesomeIcon icon={faStar} /> : <FontAwesomeIcon icon={farStar} />}</Star>
-        );
-      })}
+          ? <FontAwesomeIcon icon={faStar} />
+          : <FontAwesomeIcon icon={farStar} />}
+        </Star>))}
     </StarContainer>
   );
 };

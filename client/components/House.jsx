@@ -40,14 +40,17 @@ class House extends React.Component {
       <HouseContainer className='house'>
         <ImageContainer>
           <Heart key={this.props.house.id} />
-          <Image className='image' onClick={this.handleClick.bind(this)} src={this.props.house.imgUrl}>
+          <Image
+            className='image'
+            onClick={this.handleClick.bind(this)}
+            src={this.props.house.imgUrl}>
           </Image>
         </ImageContainer>
         <Words onClick={this.handleClick.bind(this)}>
           <LightDescription className='layout'>
             <h5>
               {this.props.house.type.toUpperCase()}: {this.props.house.location.toUpperCase()}
-              </h5>
+            </h5>
           </LightDescription>
           <div className='description'>
             <h3>{this.props.house.title} </h3>
@@ -57,8 +60,11 @@ class House extends React.Component {
           </LightDescription>
           <div className='stars'>
             <h5>
-              <Stars key={this.props.house.id} rating={this.props.house.stars} />
-               {this.props.house.reviewCount}
+              <Stars
+                key={this.props.house.id}
+                rating={this.props.house.stars}
+              />
+              {this.props.house.reviewCount}
             </h5>
           </div>
         </Words>

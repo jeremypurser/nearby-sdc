@@ -34,7 +34,19 @@ class Heart extends React.Component {
 
   render() {
     return (
-    <HeartButton>{this.state.clicked ? <FontAwesomeIcon id='fullHeart' icon={faHeart} size='2x' onClick={this.heartClick.bind(this)}/> : <FontAwesomeIcon id='emptyHeart' icon={farHeart} size='2x' onClick={this.heartClick.bind(this)}/> }</HeartButton>
+    <HeartButton>{this.state.clicked
+      ? <FontAwesomeIcon
+          id='fullHeart'
+          icon={faHeart} size='2x'
+          onClick={this.heartClick.bind(this)}
+        />
+      : <FontAwesomeIcon
+          id='emptyHeart'
+          icon={farHeart}
+          size='2x'
+          onClick={this.heartClick.bind(this)}
+        /> }
+    </HeartButton>
     );
   }
 }
