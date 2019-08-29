@@ -5,13 +5,15 @@ import Button from './Button.jsx';
 
 const CarouselContainer = styled.div`
   width: 1500px;
-  height: 500px;
+  height: 450px;
 `
 
 const ButtonContainer = styled.div`
   float: left;
-  width: 100px;
-  height: 500px;
+  left: 40%;
+  right: 30%;
+  width: 25px;
+  height: 300px;
   display: flex;
   textAlign: center;
   justifyContent: center;

@@ -41,9 +41,9 @@ class House extends React.Component {
   render() {
     return (
       <HouseContainer className='house'>
-        <ImageContainer className='image'>
+        <ImageContainer>
           <Heart />
-          <Image onClick={this.handleClick.bind(this)} src={this.props.house.imgUrl}></Image>
+          <Image className='image' onClick={this.handleClick.bind(this)} src={this.props.house.imgUrl}></Image>
         </ImageContainer>
         <Words onClick={this.handleClick.bind(this)}>
           <LightDescription className='layout'>

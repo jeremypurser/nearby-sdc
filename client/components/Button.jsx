@@ -11,6 +11,9 @@ const ButtonStyle = styled.button`
   overflow: hidden;
   outline: none;
   float: center;
+  left: 100%;
+  top: 130px;
+  padding: 0;
 `
 
 const Button = (props) => {

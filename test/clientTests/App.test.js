@@ -79,7 +79,7 @@ describe('Test House component functionality', () => {
   it('house button click call handleClick to run changeCurrentHouse', () => {
     const component = shallow(<House changeCurrentHouse={clickFn} house={props}/>);
     component
-      .find('.house')
+      .find('.image')
       .simulate('click');
     expect(clickFn).toHaveBeenCalled();
   });

@@ -6,6 +6,7 @@ import styled from 'styled-components';
 const WidgetContainer = styled.div`
   font-family: 'Tajawal', sans-serif;
   color: #424949;
+  padding-left: 100px;
 `
 
 class Widget extends React.Component {
