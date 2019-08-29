@@ -33,12 +33,6 @@ jobs:
       # seed db
       - run: npm run start-data
 
-      # start node server
-      - run:
-          name: Start Node Server
-          command: npm run start-server
-          background: true
-
       # run tests!
       - run: npm test
       - run: npm run test-server
