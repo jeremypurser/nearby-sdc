@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components'; 
+import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -34,7 +34,7 @@ class Heart extends React.Component {
 
   render() {
     return (
-    <HeartButton>{this.state.clicked ? <FontAwesomeIcon icon={faHeart} size='2x' onClick={this.heartClick.bind(this)}/> : <FontAwesomeIcon icon={farHeart} size='2x' onClick={this.heartClick.bind(this)}/> }</HeartButton>
+    <HeartButton>{this.state.clicked ? <FontAwesomeIcon id='fullHeart' icon={faHeart} size='2x' onClick={this.heartClick.bind(this)}/> : <FontAwesomeIcon id='emptyHeart' icon={farHeart} size='2x' onClick={this.heartClick.bind(this)}/> }</HeartButton>
     )
   }
 }
