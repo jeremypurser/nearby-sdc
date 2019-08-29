@@ -1,6 +1,7 @@
 import React from 'react';
 import Stars from './Stars.jsx';
 import styled from 'styled-components';
+import Heart from './Heart.jsx';
 
 const Image = styled.img`
   width: 300px;
@@ -10,19 +11,6 @@ const ImageContainer = styled.div`
   width: 300px;
   height: 225px;
   position: relative;
-`
-const Heart = styled.button`
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 20%;
-  width: 20%;
-  background-color: #555;
-  color: white;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
 `
 const HouseContainer = styled.div`
   float: left;
@@ -46,22 +34,18 @@ class House extends React.Component {
     super(props)
   }
 
-  heartClick() {
-    alert('heart clicked');
-  }
-
   handleClick() {
     this.props.changeCurrentHouse(this.props.house.nearbyNum);
   }
 
   render() {
     return (
-      <HouseContainer className='house' onClick={this.handleClick.bind(this)}>
+      <HouseContainer className='house'>
         <ImageContainer className='image'>
-          <Heart onClick={this.hearClick}>X</Heart>
-          <Image src={this.props.house.imgUrl}></Image>
+          <Heart />
+          <Image onClick={this.handleClick.bind(this)} src={this.props.house.imgUrl}></Image>
         </ImageContainer>
-        <Words>
+        <Words onClick={this.handleClick.bind(this)}>
           <LightDescription className='layout'>
             <h5>{this.props.house.type.toUpperCase()}: {this.props.house.location.toUpperCase()} </h5>
           </LightDescription>
