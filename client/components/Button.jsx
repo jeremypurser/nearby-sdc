@@ -1,9 +1,8 @@
 import React from 'react';
-import styled from 'styled-components'; 
+import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const ButtonStyle = styled.button`
   background-color: transparent;
@@ -14,12 +13,10 @@ const ButtonStyle = styled.button`
   left: 100%;
   top: 130px;
   padding: 0;
-`
+`;
 
-const Button = (props) => {
-  return (
-      <ButtonStyle className='button' onClick={props.buttonClickHandler} value={props.value}> {props.value === 'right' ?<FontAwesomeIcon id='right' icon={faChevronLeft} size='2x'/> : <FontAwesomeIcon icon={faChevronRight} size='2x'/>}</ButtonStyle>
-  )
-}
+const Button = (props) => (
+      <ButtonStyle className='button' onClick={props.buttonClickHandler} value={props.value}> {props.value === 'right' ? <FontAwesomeIcon id='right' icon={faChevronLeft} size='2x'/> : <FontAwesomeIcon icon={faChevronRight} size='2x'/>}</ButtonStyle>
+);
 
 export default Button;
