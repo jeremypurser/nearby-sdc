@@ -48,6 +48,7 @@
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
     "jest": "^24.9.0",
     "mocha": "^6.2.0",
+    "nodemon": "^1.19.1",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7"
   },
