@@ -1,19 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar} from '@fortawesome/free-regular-svg-icons';
 
-const starsStyle = {
-  display: 'flex',
-  textAlign: 'center',
-  justifyContent: 'center',
-  display: 'inline',
-  whiteSpace: 'nowrap'
-};
-const starContainer = {
-  display: 'inline',
-  whiteSpace: 'nowrap'
-}
+const StarContainer = styled.div`
+  display: inline;
+  whiteSpace: nowrap;
+  padding: 0px;
+  margin: 0px;
+`
+const Star = styled.div`
+  display: flex;
+  textAlign: center;
+  justifyContent: center;
+  display: inline;
+  whiteSpace: nowrap;
+`
 
 const Stars = (props) => {
   const starArr = [];
@@ -25,13 +29,13 @@ const Stars = (props) => {
   }
 
   return (
-    <div className='star' style={starContainer}>
+    <StarContainer className='star'>
       {starArr.map( (star, index) => {
         return (
-        <div key={index} style={starsStyle}>{(star === 1) ? <FontAwesomeIcon icon={faStar} /> : <FontAwesomeIcon icon={farStar} />}</div>
+        <Star key={index}>{(star === 1) ? <FontAwesomeIcon icon={faStar} /> : <FontAwesomeIcon icon={farStar} />}</Star>
         )
       })}
-    </div>
+    </StarContainer>
   )
 }
 
