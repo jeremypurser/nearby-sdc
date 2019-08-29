@@ -1,7 +1,21 @@
 import React from 'react';
+import styled from 'styled-components';
 import House from './House.jsx';
 import Button from './Button.jsx';
 
+const CarouselContainer = styled.div`
+  width: 1500px;
+  height: 500px;
+`
+
+const ButtonContainer = styled.div`
+  float: left;
+  width: 100px;
+  height: 500px;
+  display: flex;
+  textAlign: center;
+  justifyContent: center;
+`
 
 
 class Carousel extends React.Component {
@@ -45,39 +59,23 @@ class Carousel extends React.Component {
       })
       this.getDisplayHouses(newStart, newEnd);
     }
-
   }
 
-
-
   render() {
-    const buttonDiv = {
-      float: 'left',
-      width: '100px',
-      height: '500px',
-      display: 'flex',
-      textAlign: 'center',
-      justifyContent: 'center'
-    };
-    const divStyle = {
-      width: '1500px',
-      height: '500px'
-    }
-
     return (
-      <div className='carousel' style={divStyle}>
-        <div className='buttonDiv' style={buttonDiv}>
-          {this.state.startIndex === 0 ? <div style={buttonDiv}></div> : <Button value='right' buttonClickHandler={this.buttonClickHandler.bind(this)}/>}
-        </div>
+      <CarouselContainer className='carousel'>
+        <ButtonContainer className='buttonDiv'>
+          {this.state.startIndex === 0 ? <ButtonContainer></ButtonContainer> : <Button value='right' buttonClickHandler={this.buttonClickHandler.bind(this)}/>}
+        </ButtonContainer>
         <div className='houseDisplay'>
           {this.state.displayHouses ? this.state.displayHouses.map((house) => {
             return <House changeCurrentHouse={this.props.changeCurrentHouse} house={house} key={house._id}/>
           }): null}
         </div>
-        <div className='buttonDiv' style={buttonDiv}>
-          {this.state.endIndex === 12 ? <div style={buttonDiv}></div> : <Button value='left' buttonClickHandler={this.buttonClickHandler.bind(this)}/>}
-        </div>
-      </div>
+        <ButtonContainer className='buttonDiv'>
+          {this.state.endIndex === 12 ? <ButtonContainer></ButtonContainer> : <Button value='left' buttonClickHandler={this.buttonClickHandler.bind(this)}/>}
+        </ButtonContainer>
+      </CarouselContainer>
     )
   }
 }
