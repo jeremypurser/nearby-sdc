@@ -57,7 +57,7 @@ describe('Test Widget component functionality', () => {
   })
 });
 
-// House Component 
+// House Component testing 
 describe('Test House component functionality', () => {
   const clickFn = jest.fn();
   const props = {
