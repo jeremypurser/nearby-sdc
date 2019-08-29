@@ -22,9 +22,9 @@ describe('Test Widget component functionality', () => {
   })
 
   it('should call componentDidMount once',  () => {
-    const componentFunc = jest.fn();
+    // const componentFunc = jest.fn();
     const component = shallow(<Widget/>, options);
-    component.instance().getNearbyHouses = componentFunc;
+    component.instance().getNearbyHouses = jest.fn();
     component.update();
     const instance = component.instance();
     instance.componentDidMount();
@@ -32,27 +32,30 @@ describe('Test Widget component functionality', () => {
     expect(instance.getNearbyHouses).toHaveBeenCalledTimes(1);
   })
 
-  it('should render Carousel if state.view is true',  () => { // this one 
+  it('should render Carousel if state.view is true',  () => { 
     const component = shallow(<Widget />, options);
-    component.setState({view: true});
-    component.update();
+    component
+      .setState({view: true})
+      .update();
     expect(component.find(Carousel)).toHaveLength(1);
   })
 
   it('should change currentHouse state to the id changeCurrentHouse is called with',  () => {
     const component = shallow(<Widget />, options);
     component.instance().getNearbyHouses = jest.fn();
-    component.update();
-    const instance = component.instance();
-    instance.changeCurrentHouse(4);
+    component
+      .update()
+      .instance()
+      .changeCurrentHouse(4);
     expect(component.state('currentHouse')).toBe(4);
   })
 
   it('should change update nearbyHouseList state to array of houses',  () => {
     const houses = ['house1', 'house2', 'house3'];
     const component = shallow(<Widget />, options);
-    const instance = component.instance();
-    instance.updateHouseList(houses);
+    component
+      .instance()
+      .updateHouseList(houses);
     expect(component.state('nearbyHouseList')).toBe(houses);
   })
 });
@@ -71,9 +74,8 @@ describe('Test House component functionality', () => {
   }; 
 
   it('should render correctly', () => {
-    const component = renderer.create(<House house={props}></House>);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    const component = shallow(<House house={props}/>);
+    expect(component).toMatchSnapshot();
   })
 
   it('house button click call handleClick to run changeCurrentHouse', () => {
@@ -115,7 +117,7 @@ describe('Test Carousel component functionality', () => {
     expect(component.find(House)).toHaveLength(1);
   })
 
-  it('renders <Button /> two times for normal display', () => {
+  it('renders <Button/> two times for normal display', () => {
     const component = shallow(<Carousel />, options);
     component.setState({
       endIndex: 5,
@@ -128,32 +130,36 @@ describe('Test Carousel component functionality', () => {
     const component = shallow(<Carousel />, options);
     component.instance().getDisplayHouses = clickFn;
     component.update();
-    const instance = component.instance();
     expect(component.state('startIndex')).toBe(0);
-    instance.shiftDisplay('left');
+    component
+      .instance()
+      .shiftDisplay('left');
     expect(component.state('startIndex')).toBe(1);
   })
 
   it('should call shiftDisplay function with a side',  () => {
     const component = shallow(<Carousel />, options);
     component.instance().shiftDisplay = clickFn;
-    component.update();
-    component.instance().shiftDisplay('left');
+    component
+      .update()
+      .instance()
+      .shiftDisplay('left');
     expect(component.instance().shiftDisplay).toHaveBeenCalledWith('left');
   })
 
   it('should call getDisplayHouses function with a start and end index',  () => {
     const component = shallow(<Carousel />, options);
     component.instance().getDisplayHouses = clickFn;
-    component.update();
-    component.instance().getDisplayHouses(1, 3);
+    component
+      .update()
+      .instance()
+      .getDisplayHouses(1, 3);
     expect(component.instance().getDisplayHouses).toHaveBeenCalledWith(1,3);
   })
 
   it('should call componentDidMount once',  () => {
-    const componentFunc = jest.fn();
     const component = shallow(<Carousel/>, options);
-    component.instance().getDisplayHouses = componentFunc;
+    component.instance().getDisplayHouses = jest.fn();
     component.update();
     const instance = component.instance();
     instance.componentDidMount();
@@ -173,14 +179,12 @@ describe('Button component functionality', () => {
   }
 
   it('should render correctly', () => {
-    const component = renderer.create(<Button props={props}/>);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    const component = shallow(<Button />);
+    expect(component).toMatchSnapshot();
   });
 
   it('button value should be right', () => { 
     const component = shallow(<Button value={'right'}/>);
-    component
     expect(component.prop('value')).toEqual('right');
   });
 
@@ -196,9 +200,8 @@ describe('Button component functionality', () => {
 // Test Stars Component
 describe('Stars component functionality', () => {
   it('should render correctly', () => {
-    const component = renderer.create(<Stars/>);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    const component = shallow(<Stars />);
+    expect(component).toMatchSnapshot();
   });
 
   it('renders <FontAwesomIcon /> five times for every rating', () => {
