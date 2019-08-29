@@ -11,7 +11,7 @@
     "start-server": "nodemon node ./server/index.js",
     "dev-react": "webpack -d --watch",
     "test": "jest --coverage --u",
-    "test-server": "mocha"
+    "test-server": "mocha --bail"
   },
   "dependencies": {
     "@babel/core": "^7.5.5",
