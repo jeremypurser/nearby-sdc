@@ -18,7 +18,7 @@ describe('Test Widget component functionality', () => {
   }
 
   it('should render correctly', () => {
-    const component = shallow(<Widget />, options);
+    const component = shallow(<Widget/>, options);
     expect(component).toMatchSnapshot();
   })
 
