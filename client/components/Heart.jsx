@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { faHeart as farHeart} from '@fortawesome/free-regular-svg-icons';
+import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 
 const HeartButton = styled.div`
   position: absolute;
@@ -15,27 +15,27 @@ const HeartButton = styled.div`
   color: white;
   border: none;
   float: right;
-`
+`;
 
 class Heart extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      clicked: false
-    }
+      clicked: false,
+    };
   }
 
   heartClick() {
-    let clickToggle = this.state.clicked ? false : true;
+    const clickToggle = !this.state.clicked;
     this.setState({
-      clicked: clickToggle
-    })
+      clicked: clickToggle,
+    });
   }
 
   render() {
     return (
     <HeartButton>{this.state.clicked ? <FontAwesomeIcon id='fullHeart' icon={faHeart} size='2x' onClick={this.heartClick.bind(this)}/> : <FontAwesomeIcon id='emptyHeart' icon={farHeart} size='2x' onClick={this.heartClick.bind(this)}/> }</HeartButton>
-    )
+    );
   }
 }
 
