@@ -10,7 +10,7 @@
     "start-data": "node ./database/seed.js",
     "start-server": "nodemon node ./server/index.js",
     "dev-react": "webpack -d --watch",
-    "test": "jest --coverage",
+    "test": "jest --coverage --u",
     "test-server": "mocha"
   },
   "dependencies": {

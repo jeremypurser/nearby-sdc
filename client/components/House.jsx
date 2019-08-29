@@ -42,7 +42,7 @@ class House extends React.Component {
     return (
       <HouseContainer className='house'>
         <ImageContainer>
-          <Heart />
+          <Heart key={this.props.house._id} />
           <Image className='image' onClick={this.handleClick.bind(this)} src={this.props.house.imgUrl}></Image>
         </ImageContainer>
         <Words onClick={this.handleClick.bind(this)}>
