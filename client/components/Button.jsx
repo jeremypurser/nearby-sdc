@@ -10,7 +10,7 @@ const ButtonStyle = styled.button`
   border: none;
   overflow: hidden;
   outline: none;
-  float: left;
+  float: center;
 `
 
 const Button = (props) => {

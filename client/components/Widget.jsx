@@ -1,6 +1,12 @@
 import React from 'react';
 import Carousel from './Carousel.jsx';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const WidgetContainer = styled.div`
+  font-family: 'Tajawal', sans-serif;
+  color: #424949;
+`
 
 class Widget extends React.Component {
   constructor() {
@@ -43,10 +49,10 @@ class Widget extends React.Component {
 
   render() {
     return (
-      <div id='morePlaces'>
+      <WidgetContainer id='morePlaces'>
         <h2>More places to stay</h2>
         {this.state.view ? < Carousel key={this.state.currentHouse} changeCurrentHouse={this.changeCurrentHouse.bind(this)} nearbyHouseList={this.state.nearbyHouseList}/> : null}
-      </div>
+      </WidgetContainer>
     )
   }
 }

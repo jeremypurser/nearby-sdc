@@ -8,6 +8,8 @@ import { faStar as farStar} from '@fortawesome/free-regular-svg-icons';
 const StarContainer = styled.div`
   display: inline;
   whiteSpace: nowrap;
+  padding: 0px;
+  margin: 0px;
 `
 const Star = styled.div`
   display: flex;

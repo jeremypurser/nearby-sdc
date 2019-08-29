@@ -2,7 +2,7 @@
 
 exports[`Button component functionality should render correctly 1`] = `
 <button
-  className="button sc-htpNat hjEtpR"
+  className="button sc-ifAKCX keVeUP"
 >
    
   <svg
@@ -32,87 +32,39 @@ exports[`Stars component functionality should render correctly 1`] = `
 `;
 
 exports[`Test Carousel component functionality should render correctly 1`] = `
-<div
+<styled.div
   className="carousel"
-  style={
-    Object {
-      "height": "500px",
-      "width": "1500px",
-    }
-  }
 >
-  <div
+  <styled.div
     className="buttonDiv"
-    style={
-      Object {
-        "display": "flex",
-        "float": "left",
-        "height": "500px",
-        "justifyContent": "center",
-        "textAlign": "center",
-        "width": "100px",
-      }
-    }
   >
-    <div
-      style={
-        Object {
-          "display": "flex",
-          "float": "left",
-          "height": "500px",
-          "justifyContent": "center",
-          "textAlign": "center",
-          "width": "100px",
-        }
-      }
-    />
-  </div>
+    <styled.div />
+  </styled.div>
   <div
     className="houseDisplay"
   />
-  <div
+  <styled.div
     className="buttonDiv"
-    style={
-      Object {
-        "display": "flex",
-        "float": "left",
-        "height": "500px",
-        "justifyContent": "center",
-        "textAlign": "center",
-        "width": "100px",
-      }
-    }
   >
     <Button
       buttonClickHandler={[Function]}
       value="left"
     />
-  </div>
-</div>
+  </styled.div>
+</styled.div>
 `;
 
 exports[`Test House component functionality should render correctly 1`] = `
 <div
-  className="house"
+  className="house sc-bxivhb ghdJAk"
   onClick={[Function]}
-  style={
-    Object {
-      "float": "left",
-      "margin": "20px 20px 20px 20px",
-    }
-  }
 >
   <div
     className="image"
   >
     <img
+      className="sc-htpNat inkXUF"
       src="https://housemania.s3-us-west-1.amazonaws.com/annie-spratt-BmjlyHwV1S0-unsplash.jpg"
-      style={
-        Object {
-          "height": "200px",
-          "width": "250px",
-        }
-      }
     />
   </div>
   <div
@@ -256,6 +208,7 @@ exports[`Test House component functionality should render correctly 1`] = `
       </div>
        
       20
+       
     </h5>
   </div>
 </div>
