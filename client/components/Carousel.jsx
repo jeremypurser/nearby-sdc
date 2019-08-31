@@ -26,12 +26,21 @@ class Carousel extends React.Component {
     this.state = {
       startIndex: 0,
       endIndex: 3,
+      heartHouses: [],
     };
   }
 
   getDisplayHouses(start, end) {
     this.setState({
       displayHouses: this.props.nearbyHouseList.slice(start, end),
+    });
+  }
+
+  heartHouseClicked(index) {
+    const heartArr = this.state.heartHouses;
+    heartArr.push(index);
+    this.setState({
+      heartHouses: heartArr,
     });
   }
 
@@ -78,6 +87,8 @@ class Carousel extends React.Component {
           {this.state.displayHouses ? this.state.displayHouses.map((house) => (
             <House
               changeCurrentHouse={this.props.changeCurrentHouse}
+              heartHouses={this.heartHouses}
+              heartHouseClicked={this.heartHouseClicked.bind(this)}
               house={house}
               key={house._id}
             />
