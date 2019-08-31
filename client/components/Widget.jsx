@@ -20,9 +20,6 @@ class Widget extends React.Component {
   }
 
   changeCurrentHouse(houseId) {
-    this.setState({
-      currentHouse: houseId,
-    });
     this.getNearbyHouses(houseId);
   }
 
@@ -42,6 +39,7 @@ class Widget extends React.Component {
         this.updateHouseList(houses.data);
         this.setState({
           view: true,
+          currentHouse: id,
         });
       })
       .catch((error) => {
