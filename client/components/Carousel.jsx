@@ -53,8 +53,8 @@ class Carousel extends React.Component {
     this.getDisplayHouses(this.state.startIndex, this.state.endIndex);
   }
 
-  buttonClickHandler(event) {
-    this.shiftDisplay(event.target.value);
+  buttonClickHandler(side) {
+    this.shiftDisplay(side);
   }
 
   shiftDisplay(side) {
