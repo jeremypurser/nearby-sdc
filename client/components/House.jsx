@@ -39,7 +39,7 @@ class House extends React.Component {
     return (
       <HouseContainer className='house'>
         <ImageContainer>
-          <Heart key={this.props.house.id} />
+          <Heart heartArr={this.props.heartArr} arrIndex={this.props.house.arrIndex} heartHouseClicked={this.props.heartHouseClicked}/>
           <Image
             className='image'
             onClick={this.handleClick.bind(this)}
