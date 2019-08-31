@@ -40,15 +40,15 @@ describe('Test Widget component functionality', () => {
     expect(component.find(Carousel)).toHaveLength(1);
   });
 
-  it('should change currentHouse state to the id changeCurrentHouse is called with', () => {
-    const component = shallow(<Widget />, options);
-    component.instance().getNearbyHouses = jest.fn();
-    component
-      .update()
-      .instance()
-      .changeCurrentHouse(4);
-    expect(component.state('currentHouse')).toBe(4);
-  });
+  // it('should change currentHouse state to the id changeCurrentHouse is called with', () => {
+  //   const component = shallow(<Widget />, options);
+  //   component.instance().getNearbyHouses = jest.fn();
+  //   component
+  //     .update()
+  //     .instance()
+  //     .changeCurrentHouse(4);
+  //   expect(component.state('currentHouse')).toBe(4);
+  // });
 
   it('should change update nearbyHouseList state to array of houses', () => {
     const houses = ['house1', 'house2', 'house3'];
@@ -125,6 +125,7 @@ describe('Test Carousel component functionality', () => {
     });
     expect(component.find('.buttonDiv')).toHaveLength(2);
   });
+  
 
   it('should increase state.startIndex by 1 when shiftDisplay called with left', () => {
     const component = shallow(<Carousel />, options);
@@ -181,6 +182,17 @@ describe('Test Carousel component functionality', () => {
 
     expect(instance.getDisplayHouses).toHaveBeenCalledTimes(1);
   });
+
+  it('should add index to heartArr if not on it already', () => {
+    const component = shallow(<Carousel />, options);
+    component
+      .setState({
+        heartArr: [2],
+      })
+      .instance()
+      .heartHouseClicked(5);
+    expect(component.state('heartArr')).toMatchObject([2, 5]);
+  });
 });
 
 // Test Button Component
@@ -205,7 +217,7 @@ describe('Button component functionality', () => {
   it('button click call handleClick to run shift the display', () => {
     const component = shallow(<Button buttonClickHandler={clickFn}/>);
     component
-      .find('.button')
+      .find(FontAwesomeIcon)
       .simulate('click');
     expect(clickFn).toHaveBeenCalled();
   });
@@ -229,14 +241,45 @@ describe('Stars component functionality', () => {
 
 // Test Heart Component
 describe('Heart component functionality', () => {
+  const options = {
+    disableLifecycleMethods: true,
+  };
+
   it('should render correctly', () => {
-    const component = shallow(<Heart />);
+    const component = shallow(<Heart />, options);
     expect(component).toMatchSnapshot();
   });
 
-  it('should toggle state clicked when the heart is clicked', () => {
-    const component = shallow(<Heart />);
+  it('should call componentDidMount once', () => {
+    const component = shallow(<Heart/>, options);
+    component.instance().checkArrForRender = jest.fn();
+    component.update();
+    const instance = component.instance();
+    instance.componentDidMount();
+
+    expect(instance.checkArrForRender).toHaveBeenCalledTimes(1);
+  });
+
+  it('should change clicked state to false if not in heartArr with checkArrForRender', () => {
+    const component = shallow(<Heart />, options);
     component
+      .setProps({
+        heartArr: [1],
+        arrIndex: 2,
+      })
+      .instance()
+      .checkArrForRender();
+      expect(component.state('clicked')).toBe(false);
+    });
+
+  it('should toggle state clicked when the heart is clicked', () => {
+    const component = shallow(<Heart />, options);
+    component
+      .setProps({
+        heartArr: [1],
+        arrIndex: 2,
+        heartHouseClicked: jest.fn(),
+      })
       .find('#emptyHeart')
       .simulate('click');
     expect(component.state('clicked')).toBe(true);
