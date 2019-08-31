@@ -11,7 +11,8 @@ var nearbySchema = new Schema({
   title: String,
   cost: String,
   stars: Number,
-  reviewCount: Number
+  reviewCount: Number,
+  arrIndex: Number,
 });
 
 var NearbyHouse = mongoose.model('NearbyHouse', nearbySchema);

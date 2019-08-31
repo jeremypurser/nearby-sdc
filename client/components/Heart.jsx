@@ -25,11 +25,33 @@ class Heart extends React.Component {
     };
   }
 
+  checkArrForRender() {
+    if (this.props.heartArr.indexOf(this.props.arrIndex) === -1) {
+      this.setState({
+        clicked: false,
+      })
+    } else {
+      this.setState({
+        clicked: true,
+      })
+    }
+  }
+
+  componentDidMount() {
+    this.checkArrForRender();
+  }
+
   heartClick() {
-    const clickToggle = !this.state.clicked;
-    this.setState({
-      clicked: clickToggle,
-    });
+    if (this.props.heartArr.indexOf(this.props.arrIndex) === -1) {
+      this.setState({
+        clicked: true,
+      })
+    } else {
+      this.setState({
+        clicked: false,
+      })
+    }
+    this.props.heartHouseClicked(this.props.arrIndex);
   }
 
   render() {

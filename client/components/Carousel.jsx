@@ -10,13 +10,11 @@ const CarouselContainer = styled.div`
 
 const ButtonContainer = styled.div`
   float: left;
-  left: 40%;
-  right: 30%;
   width: 25px;
-  height: 300px;
-  display: flex;
-  textAlign: center;
-  justifyContent: center;
+  height: 225px;
+  display: table;
+  text-align: center;
+  justify-content: center;
 `;
 
 
@@ -26,6 +24,7 @@ class Carousel extends React.Component {
     this.state = {
       startIndex: 0,
       endIndex: 3,
+      heartArr: [],
     };
   }
 
@@ -35,12 +34,25 @@ class Carousel extends React.Component {
     });
   }
 
+  heartHouseClicked(index) {
+    const newHeartArr = this.state.heartArr;
+    if (newHeartArr.indexOf(index) === -1) {
+       newHeartArr.push(index);
+    } else {
+      const targetIndex = newHeartArr.indexOf(index);
+      newHeartArr.splice(targetIndex, 1);
+    }
+    this.setState({
+      heartArr: newHeartArr,
+    });
+  }
+
   componentDidMount() {
     this.getDisplayHouses(this.state.startIndex, this.state.endIndex);
   }
 
-  buttonClickHandler(event) {
-    this.shiftDisplay(event.target.value);
+  buttonClickHandler(side) {
+    this.shiftDisplay(side);
   }
 
   shiftDisplay(side) {
@@ -78,8 +90,10 @@ class Carousel extends React.Component {
           {this.state.displayHouses ? this.state.displayHouses.map((house) => (
             <House
               changeCurrentHouse={this.props.changeCurrentHouse}
+              heartHouseClicked={this.heartHouseClicked.bind(this)}
+              heartArr={this.state.heartArr}
               house={house}
-              key={house._id}
+              key={house.arrIndex}
             />
           ))
             : null}
