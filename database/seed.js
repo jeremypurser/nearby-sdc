@@ -13719,7 +13719,8 @@ const seedData = function() {
 				title: nearby.title,
 				cost: nearby.cost,
 				stars: nearby.stars,
-				reviewCount: nearby.reviewCount
+				reviewCount: nearby.reviewCount,
+				arrIndex: nearby.arrIndex,
 			};
 			return NearbyHouse.create([newNearbyHouse]);
 		})
