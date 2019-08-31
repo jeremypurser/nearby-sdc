@@ -15,15 +15,22 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 //   padding: 0;
 // `;
 
+// const ButtonStyle = styled.div`
+//   background-color: transparent;
+//   border: none;
+//   overflow: hidden;
+//   outline: none;
+//   float: center;
+//   left: 100%;
+//   top: 250px;
+//   padding: 0;
+//   text-align: center;
+// `;
+
 const ButtonStyle = styled.div`
-  background-color: transparent;
-  border: none;
-  overflow: hidden;
-  outline: none;
-  float: center;
-  left: 100%;
-  top: 130px;
-  padding: 0;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
 `;
 
 // const Button = (props) => (

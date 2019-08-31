@@ -10,13 +10,11 @@ const CarouselContainer = styled.div`
 
 const ButtonContainer = styled.div`
   float: left;
-  left: 40%;
-  right: 30%;
   width: 25px;
-  height: 300px;
-  display: flex;
-  textAlign: center;
-  justifyContent: center;
+  height: 225px;
+  display: table;
+  text-align: center;
+  justify-content: center;
 `;
 
 
