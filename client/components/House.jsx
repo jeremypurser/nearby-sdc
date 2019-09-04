@@ -12,6 +12,7 @@ const ImageContainer = styled.div`
   width: 300px;
   height: 225px;
   position: relative;
+  object-fit: scale-down;
 `;
 const HouseContainer = styled.div`
   float: left;

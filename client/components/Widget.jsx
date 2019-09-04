@@ -8,6 +8,9 @@ const WidgetContainer = styled.div`
   font-family: 'Tajawal', sans-serif;
   color: #424949;
   padding-left: 100px;
+  width: 1500px;
+  height: 450px;
+  object-fit: scale-down;
 `;
 
 class Widget extends React.Component {
