@@ -4,9 +4,9 @@ import React from 'react';
 import Stars from './Stars.jsx';
 import Heart from './Heart.jsx';
 
-const Image = styled.img`
-  width: 300px;
-  height: 225px;
+const ImageHouse = styled.img`
+  max-width: 100%;
+  max-height: 100%;
 `;
 const ImageContainer = styled.div`
   width: 300px;
@@ -41,11 +41,11 @@ class House extends React.Component {
       <HouseContainer className='house'>
         <ImageContainer>
           <Heart heartArr={this.props.heartArr} arrIndex={this.props.house.arrIndex} heartHouseClicked={this.props.heartHouseClicked}/>
-          <Image
+          <ImageHouse
             className='image'
             onClick={this.handleClick.bind(this)}
             src={this.props.house.imgUrl}>
-          </Image>
+          </ImageHouse>
         </ImageContainer>
         <Words onClick={this.handleClick.bind(this)}>
           <LightDescription className='layout'>
