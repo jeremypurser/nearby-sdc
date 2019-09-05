@@ -5,14 +5,13 @@ import Stars from './Stars.jsx';
 import Heart from './Heart.jsx';
 
 const ImageHouse = styled.img`
-  max-width: 100%;
-  max-height: 100%;
+  width: 300px;
+  height: 225px;
 `;
 const ImageContainer = styled.div`
   width: 300px;
   height: 225px;
   position: relative;
-  object-fit: scale-down;
 `;
 const HouseContainer = styled.div`
   float: left;
