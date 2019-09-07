@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongoDBUrl = 'mongodb://localhost/nearbyPlaces';
+const mongoDBUrl = 'mongodb://localhost/nearbyPlaces'; // change local host to mongo instance
 
 
 mongoose.connect(mongoDBUrl, { useNewUrlParser: true }, function(err, client) {

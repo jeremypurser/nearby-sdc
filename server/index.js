@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const NearbyHouse = require('../database/NearbyHouse.js');
 
 const app = express();
-const port = 3003;
+const port = 8081;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/../public'));
