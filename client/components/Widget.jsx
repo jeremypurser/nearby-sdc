@@ -34,7 +34,7 @@ class Widget extends React.Component {
   }
 
   getNearbyHouses(id) {
-    axios.get(`http://nearby-service-repo-dev.us-west-1.elasticbeanstalk.com/house/${id}`)
+    axios.get(`http://localhost:3003/house/${id}`)
       .then((houses) => {
         this.updateHouseList(houses.data);
         this.setState({
