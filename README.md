@@ -1,4 +1,4 @@
-# Project Name
+# Housemania
 
 > Project description
 
@@ -11,20 +11,23 @@
 
 ## Table of Contents
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
+1. [API](#API)
+
 1. [Development](#development)
 
-## Usage
+## API
 
-> Some usage instructions
+**Create**
+`POST `
 
-## Requirements
+**Read**
+`GET`
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
+**Update**
+`PATCH`
 
-- Node 6.13.0
-- etc
+**Delete**
+`DELETE`
 
 ## Development
 
