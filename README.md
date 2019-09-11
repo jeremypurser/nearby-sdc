@@ -19,16 +19,20 @@ The nearby service shows listings related by proximity to the current item view.
 
 ## CRUD API
 
-**Create** . 
+**Create**  
+
 `POST   /houses/:parentHouseId`
 
-**Read** . 
+**Read**  
+
 `GET    /houses/:parentHouseId`
 
-**Update** . 
+**Update**  
+
 `PATCH  /houses/:parentHouseId/:id`
 
-**Delete** . 
+**Delete**  
+
 `DELETE /houses/:parentHouseId/:id`
 
 
