@@ -16,8 +16,9 @@ app.use((req, res, next) => {
   });
   next();
 });
-// CREATE
 
+// CREATE
+app.post();
 
 // READ
 app.get('/house/:houseId', (req, res) => {
@@ -31,6 +32,7 @@ app.get('/house/:houseId', (req, res) => {
 });
 
 // UPDATE
+app.patch();
 
 // DELETE
 
