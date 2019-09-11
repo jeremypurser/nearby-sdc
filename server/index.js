@@ -16,7 +16,10 @@ app.use((req, res, next) => {
   });
   next();
 });
+// CREATE
 
+
+// READ
 app.get('/house/:houseId', (req, res) => {
   NearbyHouse.find(({ parentHouseId: req.params.houseId }))
     .then((houses) => {
@@ -26,6 +29,10 @@ app.get('/house/:houseId', (req, res) => {
       res.send(error);
     });
 });
+
+// UPDATE
+
+// DELETE
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
