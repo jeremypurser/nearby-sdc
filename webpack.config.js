@@ -1,32 +1,9 @@
 const path = require('path');
 
-// module.exports = {
-//   entry: __dirname + '/client/index.jsx',
-//   module: {
-//     rules: [
-//       {
-//         test: [/\.jsx$/],
-//         exclude: /node_modules/,
-//         use: {
-//           loader: 'babel-loader',
-//           options: {
-//             presets: ['@babel/preset-react',
-//               '@babel/preset-env'],
-//           },
-//         },
-//       },
-//     ],
-//   },
-//   output: {
-//     filename: 'bundle.js',
-//     path: __dirname + '/public',
-//   },
-// };
-
 module.exports = {
   entry: {
-    nearby: __dirname + '/client/index.jsx',
-    vendor: ["styled-components"],
+    nearby: path.join(__dirname, '/client/index.jsx'),
+    vendor: ['styled-components'],
   },
   optimization: {
     runtimeChunk: {
@@ -35,13 +12,13 @@ module.exports = {
     splitChunks: {
       cacheGroups: {
         vendor: {
-          chunks: "all",
+          chunks: 'all',
           test: /[\\/]node_modules[\\/]/,
-          name: "vendor",
+          name: 'vendor',
           enforce: true,
         },
         default: {
-          chunks: "all",
+          chunks: 'all',
           minChunks: 2,
           priority: -20,
           reuseExistingChunk: true,
@@ -51,7 +28,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      "styled-components": path.resolve("./node_modules", "styled-components"),
+      'styled-components': path.resolve('./node_modules', 'styled-components'),
     },
   },
   module: {
@@ -70,6 +47,6 @@ module.exports = {
   },
   output: {
     filename: '[name].bundle.js',
-    path: __dirname + '/public',
+    path: path.join(__dirname, '/public'),
   },
 };
