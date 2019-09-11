@@ -1,32 +1,37 @@
-# Project Name
+# Housemania
 
-> Project description
+A tool to find short-term housing rentals.
 
-## Related Projects
+## Nearby Service
+
+The nearby service shows listings related by proximity to the current item view. The `NearbyHouses` are resources that belong to a `ParentHouse`, and is linked to it in the database with its `parentHouseId`, as seen in the API below.
+<!-- ## Related Projects
 
   - https://github.com/teamName/repo
   - https://github.com/teamName/repo
   - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/teamName/repo -->
 
-## Table of Contents
+<!-- ## Table of Contents
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+1. [API](#API)
+1. [Dependencies](#InstallingDependencies) -->
 
-## Usage
+## CRUD API
 
-> Some usage instructions
+**Create**
+`POST   /houses/:parentHouseId`
 
-## Requirements
+**Read**
+`GET    /houses/:parentHouseId`
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
+**Update**
+`PATCH  /houses/:parentHouseId/:id`
 
-- Node 6.13.0
-- etc
+**Delete**
+`DELETE /houses/:parentHouseId/:id`
 
-## Development
+
 
 ### Installing Dependencies
 
