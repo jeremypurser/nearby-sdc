@@ -4,10 +4,10 @@ const mongoDBUrl = 'mongodb://localhost/nearbyPlaces'; // change local host to m
 
 mongoose.connect(mongoDBUrl, { useNewUrlParser: true }, function(err, client) {
   if (err) {
-    console.log(err)
+    console.log(err);
   }
 });
-
+mongoose.set('useFindAndModify', false);
 const db = mongoose.connection;
 const collection = db.collection('nearbyhouses');
 
