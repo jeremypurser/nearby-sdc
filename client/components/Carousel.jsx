@@ -37,7 +37,7 @@ class Carousel extends React.Component {
   heartHouseClicked(index) {
     const newHeartArr = this.state.heartArr;
     if (newHeartArr.indexOf(index) === -1) {
-       newHeartArr.push(index);
+      newHeartArr.push(index);
     } else {
       const targetIndex = newHeartArr.indexOf(index);
       newHeartArr.splice(targetIndex, 1);
@@ -82,9 +82,9 @@ class Carousel extends React.Component {
           {this.state.startIndex === 0
             ? <ButtonContainer></ButtonContainer>
             : <Button
-                value='right'
-                buttonClickHandler={this.buttonClickHandler.bind(this)}
-              />}
+              value='right'
+              buttonClickHandler={this.buttonClickHandler.bind(this)}
+            />}
         </ButtonContainer>
         <div className='houseDisplay'>
           {this.state.displayHouses ? this.state.displayHouses.map((house) => (
@@ -102,9 +102,9 @@ class Carousel extends React.Component {
           {this.state.endIndex === 12
             ? <ButtonContainer></ButtonContainer>
             : <Button
-                value='left'
-                buttonClickHandler={this.buttonClickHandler.bind(this)}
-              />}
+              value='left'
+              buttonClickHandler={this.buttonClickHandler.bind(this)}
+            />}
         </ButtonContainer>
       </CarouselContainer>
     );
