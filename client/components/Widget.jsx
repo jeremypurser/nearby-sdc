@@ -51,8 +51,8 @@ class Widget extends React.Component {
     return (
       <WidgetContainer id='morePlaces'>
         <h2>More places to stay</h2>
-        {this.state.view ?
-          <Carousel
+        {this.state.view
+          ? <Carousel
             key={this.state.currentHouse}
             changeCurrentHouse={this.changeCurrentHouse.bind(this)}
             nearbyHouseList={this.state.nearbyHouseList} />
