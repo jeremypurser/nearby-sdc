@@ -32,3 +32,6 @@ dist/
 
 # data
 data/nearbyData*.csv
+
+# config
+config.js
