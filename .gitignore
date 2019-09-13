@@ -31,7 +31,7 @@ dist/
 !.elasticbeanstalk/*.global.yml
 
 # data
-data/nearbyData*.csv
+data/nearbyData*
 
 # config
 config.js
