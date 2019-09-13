@@ -1,9 +1,8 @@
 CREATE TABLE houses (
-  ID SERIAL PRIMARY KEY,
-  imgUrl VARCHAR(70),
-  location VARCHAR(30),
+  imgUrl VARCHAR(15),
+  location VARCHAR(25),
   type VARCHAR(20),
-  title VARCHAR(30),
+  title VARCHAR(45),
   cost SMALLINT,
   stars SMALLINT,
   reviewCount SMALLINT
