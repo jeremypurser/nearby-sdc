@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const NearbyHouse = require('../database/NearbyHouse.js');
+const NearbyHouse = require('../database/mongo/NearbyHouse.js');
 const ObjectId = require('mongoose').Types.ObjectId;
 
 const app = express();
