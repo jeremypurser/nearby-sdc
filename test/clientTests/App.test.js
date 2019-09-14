@@ -2,14 +2,12 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-
 import Widget from '../../client/components/Widget.jsx';
 import House from '../../client/components/House.jsx';
 import Button from '../../client/components/Button.jsx';
 import Carousel from '../../client/components/Carousel.jsx';
 import Stars from '../../client/components/Stars.jsx';
 import Heart from '../../client/components/Heart.jsx';
-
 
 // Widget Component
 describe('Test Widget component functionality', () => {
@@ -125,7 +123,7 @@ describe('Test Carousel component functionality', () => {
     });
     expect(component.find('.buttonDiv')).toHaveLength(2);
   });
-  
+
 
   it('should increase state.startIndex by 1 when shiftDisplay called with left', () => {
     const component = shallow(<Carousel />, options);

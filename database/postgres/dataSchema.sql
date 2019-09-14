@@ -7,3 +7,8 @@ CREATE TABLE houses (
   stars SMALLINT,
   reviewCount SMALLINT
 );
+
+CREATE TABLE near (
+  id SERIAL PRIMARY KEY,
+  houses INT []
+);
