@@ -29,22 +29,21 @@ const cost = () => Math.floor(Math.random() * 400) + 100;
 const stars = () => Math.floor(Math.random() * 6);
 const reviewCount = () => Math.floor(Math.random() * 400);
 
-const tsvString = (num) => {
+const tsvString = (num, mill) => {
   let result = '';
   for (let i = 0; i < num; i++) {
     // https://hrr40-sdc2-jp.s3.us-east-2.amazonaws.com/  <-- add after pulling jpg name from db
-    result += `sdcimg-${i % 482}.jpg\t${location()}\t${type()}\t${title()}\t${cost()}\t${stars()}\t${reviewCount()}\n`;
+    result += `${mill + i + 1}\tsdcimg-${i % 482}.jpg\t${location()}\t${type()}\t${title()}\t${cost()}\t${stars()}\t${reviewCount()}\n`;
   }
   return result;
 };
 
-const genTenMillionRecords = (i = 1) => {
-  fs.writeFile(path.join(__dirname, `nearbyData${i}.tsv`), tsvString(Math.pow(10, 6)), err => {
+const genTenMillionRecords = (i = 1, mill = 0) => {
+  fs.writeFile(path.join(__dirname, `nearbyData${i}.tsv`), tsvString(Math.pow(10, 6), mill), err => {
     if (err) { console.log(err); }
     console.log(`File ${i} has been saved!`);
-    i++;
-    if (i <= 10) {
-      genTenMillionRecords(i);
+    if (i < 10) {
+      genTenMillionRecords(i + 1, mill + Math.pow(10, 6));
     }
   });
 };
