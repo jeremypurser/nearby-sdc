@@ -12,3 +12,8 @@ CREATE TABLE near (
   id SERIAL PRIMARY KEY,
   houses INT []
 );
+
+CREATE TABLE near (
+  id SERIAL PRIMARY KEY,
+  houses nearbyhouses
+);
