@@ -15,6 +15,18 @@ CREATE COLUMNFAMILY houses(
   reviewCount varint
 );
 
+CREATE COLUMNFAMILY rentals(
+  id int PRIMARY KEY,
+  imgUrl text,
+  location text,
+  type text,
+  title text,
+  cost varint,
+  stars varint,
+  reviewCount varint,
+  zip varint
+);
+
 COPY houses(id, imgUrl, location, type, title, cost, stars, reviewCount) \
     FROM '~/Documents/Hack Reactor/sdc/nearby-service/data/nearbyData1.tsv' \
     WITH DELIMITER='\t'
@@ -25,3 +37,7 @@ CREATE COLUMNFAMILY near(
 );
 
 COPY near(id, houses) FROM '~/Documents/Hack Reactor/sdc/nearby-service/data/nearJoin1.tsv' WITH DELIMITER='\t';
+
+COPY rentals(id, imgUrl, location, type, title, cost, stars, reviewCount, zip)
+FROM '~/Documents/Hack Reactor/sdc/nearby-service/data/rentals1.tsv'
+WITH DELIMITER='\t'
