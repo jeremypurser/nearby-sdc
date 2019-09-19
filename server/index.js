@@ -17,10 +17,10 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post('/house/:houseId', controller.createRental);
-app.get('/house/:houseId', controller.findNearbyRentals);
-app.put('/house/:houseId/:id', controller.updateRental);
-app.delete('/house/:houseId/:id', controller.deleteRental);
+app.post('/houses', controller.createRental);
+app.get('/houses/:id', controller.findNearbyRentals);
+app.put('/houses/:id', controller.updateRental);
+app.delete('/houses/:id', controller.deleteRental);
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
