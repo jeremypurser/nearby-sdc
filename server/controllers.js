@@ -1,5 +1,5 @@
 const Pool = require('pg').Pool;
-const { user, password } = require('../../config.js');
+const { user, password } = require('../config.js');
 
 const pool = new Pool({
   user,
@@ -18,8 +18,7 @@ exports.createRental = (req, res) => {
   const params = [imgurl, location, type, title, cost, stars, reviewCount, zip];
   pool.query(query, params)
     .then(result => {
-      console.log(result.rows[0]);
-      res.status(201).json(result);
+      res.status(201).send(`Record ${JSON.stringify(result)} created`);
     })
     .catch(e => {
       console.error(e.stack);
@@ -27,10 +26,10 @@ exports.createRental = (req, res) => {
 };
 
 exports.findNearbyRentals = (req, res) => {
-  const query = 'SELECT * FROM rentals WHERE zip > $1 AND zip < $2';
-  const lowZip = req.body.zip - 500;
-  const highZip = req.body.zip + 500;
-  const params = [lowzip, highZip];
+  const query = 'SELECT * FROM rentals WHERE zip > $1 AND zip < $2 fetch first 12 row only';
+  const lowZip = req.params.zip - 500;
+  const highZip = req.params.zip + 500;
+  const params = [lowZip, highZip];
   pool.query(query, params)
     .then(result => {
       res.status(200).json(result.rows);
@@ -41,12 +40,10 @@ exports.findNearbyRentals = (req, res) => {
 };
 
 exports.updateRental = (req, res) => {
-  const {
-    id, imgurl, location, type, title, cost, zip
-  } = req.body;
-  const query = 'UPDATE rentals SET imgurl = $1, location = $2, type = $3, title = $4, \
-    cost = $5, zip = $6 WHERE id = $7';
-  const params = [imgurl, location, type, title, cost, zip, id];
+  const [toBeUpdated] = Object.entries(req.body);
+  const query = `UPDATE rentals SET ${toBeUpdated[0]} = $1 WHERE id = $2`;
+  const { id } = req.params;
+  const params = [toBeUpdated[1], id];
   pool.query(query, params)
     .then(result => {
       res.status(200).send(`User with id: ${id} updated`);
@@ -57,7 +54,7 @@ exports.updateRental = (req, res) => {
 };
 
 exports.deleteRental = (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
   const query = 'DELETE FROM rentals WHERE id = $1';
   pool.query(query, [id])
     .then(result => {
