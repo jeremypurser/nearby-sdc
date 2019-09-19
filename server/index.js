@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const logger = require('morgan');
 const controller = require('./controllers.js');
 
 const app = express();
 const port = 8081;
 
+app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/../public')));
 app.use((req, res, next) => {
@@ -18,8 +20,8 @@ app.use((req, res, next) => {
 });
 
 app.post('/houses', controller.createRental);
-app.get('/houses/:id', controller.findNearbyRentals);
-app.put('/houses/:id', controller.updateRental);
+app.get('/houses/:zip', controller.findNearbyRentals);
+app.patch('/houses/:id', controller.updateRental);
 app.delete('/houses/:id', controller.deleteRental);
 
 app.listen(port, () => {
