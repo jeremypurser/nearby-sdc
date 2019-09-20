@@ -29,11 +29,11 @@ class Heart extends React.Component {
     if (this.props.heartArr.indexOf(this.props.arrIndex) === -1) {
       this.setState({
         clicked: false,
-      })
+      });
     } else {
       this.setState({
         clicked: true,
-      })
+      });
     }
   }
 
@@ -42,33 +42,32 @@ class Heart extends React.Component {
   }
 
   heartClick() {
+    console.log(this.props.arrIndex);
     if (this.props.heartArr.indexOf(this.props.arrIndex) === -1) {
       this.setState({
         clicked: true,
-      })
+      });
     } else {
       this.setState({
         clicked: false,
-      })
+      });
     }
     this.props.heartHouseClicked(this.props.arrIndex);
   }
 
   render() {
     return (
-    <HeartButton>{this.state.clicked
-      ? <FontAwesomeIcon
+      <HeartButton>{this.state.clicked
+        ? <FontAwesomeIcon
           id='fullHeart'
           icon={faHeart} size='2x'
-          onClick={this.heartClick.bind(this)}
-        />
-      : <FontAwesomeIcon
+          onClick={this.heartClick.bind(this)} />
+        : <FontAwesomeIcon
           id='emptyHeart'
           icon={farHeart}
           size='2x'
-          onClick={this.heartClick.bind(this)}
-        /> }
-    </HeartButton>
+          onClick={this.heartClick.bind(this)} />}
+      </HeartButton>
     );
   }
 }

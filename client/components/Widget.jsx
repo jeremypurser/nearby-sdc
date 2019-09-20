@@ -24,7 +24,7 @@ class Widget extends React.Component {
   }
 
   componentDidMount() {
-    this.getNearbyHouses(1);
+    this.getNearbyHouses(11222);
   }
 
   updateHouseList(houses) {
@@ -33,13 +33,13 @@ class Widget extends React.Component {
     });
   }
 
-  getNearbyHouses(id) {
-    axios.get(`http://localhost:8081/house/${id}`)
+  getNearbyHouses(zip) {
+    axios.get(`http://localhost:8081/houses/${zip}`)
       .then((houses) => {
         this.updateHouseList(houses.data);
         this.setState({
           view: true,
-          currentHouse: id,
+          currentHouse: houses.data[0].id,
         });
       })
       .catch((error) => {
