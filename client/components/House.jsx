@@ -15,14 +15,14 @@ const ImageContainer = styled.div`
 `;
 const HouseContainer = styled.div`
   float: left;
-  margin: 8px 8px 8px 8px;
+  margin: 8px;
   width: 300px;
-  height: 275x;
+  height: 275px;
 `;
 const Words = styled.div`
   font-weight: 300;
-  padding: 0px 0px 0px 0px;
-  margin: 0px 0px 0px 0px;
+  padding: 0;
+  margin: 0;
 `;
 const LightDescription = styled.div`
   line-height: 30%;
@@ -32,18 +32,20 @@ const LightDescription = styled.div`
 
 class House extends React.Component {
   handleClick() {
-    this.props.changeCurrentHouse(this.props.house.nearbyNum);
+    this.props.changeCurrentHouse(this.props.house.id);
   }
 
   render() {
+    const preUrl = 'https://hrr40-sdc2-jp.s3.us-east-2.amazonaws.com/';
     return (
       <HouseContainer className='house'>
         <ImageContainer>
-          <Heart heartArr={this.props.heartArr} arrIndex={this.props.house.arrIndex} heartHouseClicked={this.props.heartHouseClicked}/>
+          <Heart heartArr={this.props.heartArr} arrIndex={this.props.arrIndex}
+            heartHouseClicked={this.props.heartHouseClicked} />
           <ImageHouse
             className='image'
             onClick={this.handleClick.bind(this)}
-            src={this.props.house.imgUrl}>
+            src={preUrl + this.props.house.imgurl}>
           </ImageHouse>
         </ImageContainer>
         <Words onClick={this.handleClick.bind(this)}>
@@ -56,7 +58,7 @@ class House extends React.Component {
             <h3>{this.props.house.title} </h3>
           </div>
           <LightDescription className='cost'>
-            <h5>{this.props.house.cost} </h5>
+            <h5>{`$${this.props.house.cost}/night`} </h5>
           </LightDescription>
           <div className='stars'>
             <h5>
@@ -64,7 +66,7 @@ class House extends React.Component {
                 key={this.props.house.id}
                 rating={this.props.house.stars}
               />
-              {this.props.house.reviewCount}
+              {` ${this.props.house.reviewcount}`}
             </h5>
           </div>
         </Words>

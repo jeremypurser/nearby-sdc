@@ -17,7 +17,6 @@ const ButtonContainer = styled.div`
   justify-content: center;
 `;
 
-
 class Carousel extends React.Component {
   constructor(props) {
     super(props);
@@ -61,7 +60,7 @@ class Carousel extends React.Component {
       const newEnd = this.state.endIndex - 1;
       this.setState({
         startIndex: newStart,
-        endIndex: newEnd,
+        endIndex: newEnd
       });
       this.getDisplayHouses(newStart, newEnd);
     } else if (side === 'left') {
@@ -69,13 +68,14 @@ class Carousel extends React.Component {
       const newEnd = this.state.endIndex + 1;
       this.setState({
         startIndex: newStart,
-        endIndex: newEnd,
+        endIndex: newEnd
       });
       this.getDisplayHouses(newStart, newEnd);
     }
   }
 
   render() {
+    const nearbyHouseList = this.props.nearbyHouseList || [];
     return (
       <CarouselContainer className='carousel'>
         <ButtonContainer className='buttonDiv'>
@@ -87,13 +87,13 @@ class Carousel extends React.Component {
             />}
         </ButtonContainer>
         <div className='houseDisplay'>
-          {this.state.displayHouses ? this.state.displayHouses.map((house) => (
-            <House
+          {this.state.displayHouses ? this.state.displayHouses.map((house, i) => (
+            <House key={`house${i}`}
               changeCurrentHouse={this.props.changeCurrentHouse}
               heartHouseClicked={this.heartHouseClicked.bind(this)}
               heartArr={this.state.heartArr}
               house={house}
-              key={house.arrIndex}
+              arrIndex={nearbyHouseList.indexOf(house)}
             />
           ))
             : null}

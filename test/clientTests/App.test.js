@@ -1,4 +1,4 @@
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -98,17 +98,42 @@ describe('Test Carousel component functionality', () => {
   });
 
   it('renders <House /> one times', () => {
+    const nearbyHouseList = [
+      {
+        cost: 336,
+        id: 6891904,
+        imgurl: 'sdcimg-203.jpg',
+        location: 'Favianfurt',
+        reviewcount: 127,
+        stars: 3,
+        title: 'Fugit Numquam Dicta',
+        type: 'at',
+        zip: 37600
+      },
+      {
+        cost: 246,
+        id: 6891905,
+        imgurl: 'sdcimg-204.jpg',
+        location: 'Harveychester',
+        reviewcount: 120,
+        stars: 5,
+        title: 'Sequi Voluptatem Nihil',
+        type: 'temporibus',
+        zip: 15169
+      }
+    ];
     const component = shallow(<Carousel />, options);
     component.setState({
       displayHouses: [
         {
-          imgUrl: 'https://housemania.s3-us-west-1.amazonaws.com/annie-spratt-BmjlyHwV1S0-unsplash.jpg',
+          id: 1,
+          imgurl: 'https://housemania.s3-us-west-1.amazonaws.com/annie-spratt-BmjlyHwV1S0-unsplash.jpg',
           cost: '$309/night',
           location: 'Saratoga',
           type: 'apartment',
           title: 'quaint house',
           stars: 4,
-          reviewCount: 20,
+          reviewcount: 20,
         },
       ],
     });
@@ -267,8 +292,8 @@ describe('Heart component functionality', () => {
       })
       .instance()
       .checkArrForRender();
-      expect(component.state('clicked')).toBe(false);
-    });
+    expect(component.state('clicked')).toBe(false);
+  });
 
   it('should toggle state clicked when the heart is clicked', () => {
     const component = shallow(<Heart />, options);
