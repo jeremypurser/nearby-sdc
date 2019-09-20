@@ -75,6 +75,7 @@ class Carousel extends React.Component {
   }
 
   render() {
+    const nearbyHouseList = this.props.nearbyHouseList || [];
     return (
       <CarouselContainer className='carousel'>
         <ButtonContainer className='buttonDiv'>
@@ -92,7 +93,7 @@ class Carousel extends React.Component {
               heartHouseClicked={this.heartHouseClicked.bind(this)}
               heartArr={this.state.heartArr}
               house={house}
-              arrIndex={this.props.nearbyHouseList.indexOf(house)}
+              arrIndex={nearbyHouseList.indexOf(house)}
             />
           ))
             : null}

@@ -114,7 +114,7 @@ exports[`Test House component functionality should render correctly 1`] = `
     <styled.img
       className="image"
       onClick={[Function]}
-      src="https://housemania.s3-us-west-1.amazonaws.com/annie-spratt-BmjlyHwV1S0-unsplash.jpg"
+      src="https://hrr40-sdc2-jp.s3.us-east-2.amazonaws.com/undefined"
     />
   </styled.div>
   <styled.div
@@ -141,7 +141,7 @@ exports[`Test House component functionality should render correctly 1`] = `
       className="cost"
     >
       <h5>
-        $309/night
+        $$309/night/night
          
       </h5>
     </styled.div>
@@ -152,7 +152,7 @@ exports[`Test House component functionality should render correctly 1`] = `
         <Stars
           rating={4}
         />
-        20
+         undefined
       </h5>
     </div>
   </styled.div>
