@@ -11,14 +11,13 @@ const pool = new Pool({
 
 exports.createRental = (req, res) => {
   const {
-    imgurl, location, type, title, cost, stars, reviewCount, zip
+    imgurl, location, type, title, cost, zip
   } = req.body;
   const query = 'INSERT INTO rentals (imgurl, location, type, title, cost, stars, \
-    reviewcount, zip) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)';
-  const params = [imgurl, location, type, title, cost, stars, reviewCount, zip];
-  pool.query(query, params)
+    reviewcount, zip) VALUES ($1, $2, $3, $4, $5, 0, 0, $6)';
+  pool.query(query, [imgurl, location, type, title, cost, zip])
     .then(result => {
-      res.status(201).send(`Record ${JSON.stringify(result)} created`);
+      res.status(201).json(result);
     })
     .catch(e => {
       console.error(e.stack);
@@ -26,10 +25,10 @@ exports.createRental = (req, res) => {
 };
 
 exports.findNearbyRentals = (req, res) => {
-  const query = 'SELECT * FROM rentals WHERE zip > $1 AND zip < $2 fetch first 12 row only';
-  const lowZip = req.params.zip - 500;
-  const highZip = req.params.zip + 500;
-  const params = [lowZip, highZip];
+  const query = 'SELECT * FROM rentals WHERE zip > $1 AND zip < $2 \
+    ORDER by id DESC FETCH FIRST 12 ROW ONLY';
+  const searchZip = Number(req.params.zip);
+  const params = [(searchZip - 500), (searchZip + 500)];
   pool.query(query, params)
     .then(result => {
       res.status(200).json(result.rows);

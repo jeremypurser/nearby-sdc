@@ -2,13 +2,11 @@ const newrelic = require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const logger = require('morgan');
 const controller = require('./controllers.js');
 
 const app = express();
 const port = 8081;
 
-app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/../public')));
 app.use((req, res, next) => {
