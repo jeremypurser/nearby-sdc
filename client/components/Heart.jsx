@@ -42,7 +42,6 @@ class Heart extends React.Component {
   }
 
   heartClick() {
-    console.log(this.props.arrIndex);
     if (this.props.heartArr.indexOf(this.props.arrIndex) === -1) {
       this.setState({
         clicked: true,

@@ -42,8 +42,8 @@ class Widget extends React.Component {
           currentHouse: houses.data[0].id,
         });
       })
-      .catch((error) => {
-        console.log(`error getting houses ${error}`);
+      .catch(err => {
+        throw err;
       });
   }
 
