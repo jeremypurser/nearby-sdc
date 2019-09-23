@@ -1,0 +1,11 @@
+config:
+  target: "http://localhost:8081"
+  phases:
+    - duration: 30
+      arrivalRate: 3000
+  defaults:
+    headers:
+scenarios:
+  - flow:
+    - get:
+        url: "/houses/11222"

@@ -2,7 +2,7 @@ import http from 'k6/http';
 import { check, sleep } from 'k6';
 
 export let options = {
-  vus: 3000,
+  vus: 2000,
   duration: '60s'
   // stages: [
   //   { duration: '30s', target: 100 },
@@ -13,12 +13,10 @@ export let options = {
 };
 
 export default function() {
-  const zip = () => Math.floor(Math.random() * (99999 - 10000 + 1) + 10000);
-  const url = 'http://localhost:8081/houses/';
-  let getReq = http.get(`${url}${zip()}`);
+  let getReq = http.get('http://localhost:8081/houses/11222');
   check(getReq, {
     'get: status was 200': r => r.status === 200,
-    'get: transaction time OK': r => r.timings.duration < 500
+    'get: transaction time OK': r => r.timings.duration < 2000
   });
   sleep(1);
 }

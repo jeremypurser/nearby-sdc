@@ -11,10 +11,10 @@ const ButtonStyle = styled.div`
 `;
 
 const Button = (props) => (
-      <ButtonStyle className='button' value={props.value}> {props.value === 'right'
-        ? <FontAwesomeIcon onClick={() => props.buttonClickHandler('right')} id='right' icon={faChevronLeft} size='2x'/>
-        : <FontAwesomeIcon onClick={() => props.buttonClickHandler('left')} icon={faChevronRight} size='2x'/>}
-      </ButtonStyle>
+  <ButtonStyle className='button' value={props.value}> {props.value === 'right'
+    ? <FontAwesomeIcon onClick={() => props.buttonClickHandler('right')} id='right' icon={faChevronLeft} size='2x'/>
+    : <FontAwesomeIcon onClick={() => props.buttonClickHandler('left')} icon={faChevronRight} size='2x'/>}
+  </ButtonStyle>
 );
 
 export default Button;
