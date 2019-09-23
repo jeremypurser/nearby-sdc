@@ -20,7 +20,7 @@ exports.createRental = (req, res) => {
       res.status(201).json(result);
     })
     .catch(e => {
-      console.error(e.stack);
+      res.status(500);
     });
 };
 
@@ -34,7 +34,7 @@ exports.findNearbyRentals = (req, res) => {
       res.status(200).json(result.rows);
     })
     .catch(e => {
-      console.error(e.stack);
+      res.status(500);
     });
 };
 
@@ -48,7 +48,7 @@ exports.updateRental = (req, res) => {
       res.status(200).send(`User with id: ${id} updated`);
     })
     .catch(e => {
-      console.error(e.stack);
+      res.status(500);
     });
 };
 
@@ -60,6 +60,6 @@ exports.deleteRental = (req, res) => {
       res.status(200).send(`User with id: ${id} deleted`);
     })
     .catch(e => {
-      console.error(e.stack);
+      res.status(500);
     });
 };
