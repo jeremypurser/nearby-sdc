@@ -2,21 +2,21 @@ const newrelic = require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors');
+const http = require('http');
+const https = require('https');
 const controller = require('./controllers.js');
+
+http.globalAgent.maxSockets = Infinity;
+https.globalAgent.maxSockets = Infinity;
 
 const app = express();
 const port = 8081;
+const host = 'localhost';
 
-app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/../public')));
-app.use((req, res, next) => {
-  res.set({
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, DELETE',
-    'Access-Control-Allow-Headers': 'Content-Type',
-  });
-  next();
-});
+app.use(bodyParser.json());
+app.use(cors());
 
 app.post('/houses', controller.createRental);
 app.get('/houses/:zip', controller.findNearbyRentals);
