@@ -4,7 +4,7 @@ const mongoDBUrl = 'mongodb://localhost/nearbyPlaces'; // change local host to m
 
 mongoose.connect(mongoDBUrl, { useNewUrlParser: true }, function(err, client) {
   if (err) {
-    console.log(err);
+    throw err;
   }
 });
 mongoose.set('useFindAndModify', false);
