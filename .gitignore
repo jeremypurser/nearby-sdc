@@ -37,8 +37,5 @@ data/nearbyData*
 # config
 config.js
 
-#new relic
-newrelic.js
-
 production/
 *min*
