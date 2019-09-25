@@ -1,11 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 const { Pool } = require('pg');
-const { user, password } = require('../../config.js');
 const copyFrom = require('pg-copy-streams').from;
+const { password } = require('../../config.js');
 
 const pool = new Pool({
-  user,
+  user: 'postgres',
   host: 'localhost',
   database: 'housemania',
   password,
@@ -14,8 +14,10 @@ const pool = new Pool({
 
 const loadData = (i = 1) => {
   pool.connect((err, client) => {
+    if (err) { return console.log(err); }
     const stream = client.query(copyFrom('COPY rentals FROM STDIN'));
     const fileStream = fs.createReadStream(path.join(__dirname, `../../data/rentals${i}.tsv`));
+    
     fileStream.on('error', err => {
       console.log(`Error in reading file: ${err}`);
       client.end();
