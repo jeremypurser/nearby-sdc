@@ -1,11 +1,11 @@
 const Pool = require('pg').Pool;
-const { user, password } = require('../config.js');
+const { password } = require('../config.js');
 
 const pool = new Pool({
-  user,
+  user: 'postgres',
   host: 'localhost',
-  database: 'housemania',
   password,
+  database: 'housemania',
   port: 5432
 });
 
@@ -13,14 +13,13 @@ exports.createRental = (req, res) => {
   const {
     imgurl, location, type, title, cost, zip
   } = req.body;
-  const query = 'INSERT INTO rentals (imgurl, location, type, title, cost, stars, \
-    reviewcount, zip) VALUES ($1, $2, $3, $4, $5, 0, 0, $6)';
+  const query = 'INSERT INTO rentals (imgurl, location, type, title, cost, stars, reviewcount, zip) VALUES ($1, $2, $3, $4, $5, 0, 0, $6)';
   pool.query(query, [imgurl, location, type, title, cost, zip])
     .then(result => {
-      res.status(201).json(result);
+      res.status(201).end();
     })
     .catch(e => {
-      res.status(500);
+      res.status(500).end();
     });
 };
 
@@ -31,10 +30,10 @@ exports.findNearbyRentals = (req, res) => {
   const params = [(searchZip - 500), (searchZip + 500)];
   pool.query(query, params)
     .then(result => {
-      res.status(200).json(result.rows);
+      res.status(200).json(result.rows).end();
     })
     .catch(e => {
-      res.status(500);
+      res.status(500).end();
     });
 };
 
@@ -45,10 +44,10 @@ exports.updateRental = (req, res) => {
   const params = [toBeUpdated[1], id];
   pool.query(query, params)
     .then(result => {
-      res.status(200).send(`User with id: ${id} updated`);
+      res.status(200).send(`User with id: ${id} updated`).end();
     })
     .catch(e => {
-      res.status(500);
+      res.status(500).end();
     });
 };
 
@@ -57,9 +56,9 @@ exports.deleteRental = (req, res) => {
   const query = 'DELETE FROM rentals WHERE id = $1';
   pool.query(query, [id])
     .then(result => {
-      res.status(200).send(`User with id: ${id} deleted`);
+      res.status(200).send(`User with id: ${id} deleted`).end();
     })
     .catch(e => {
-      res.status(500);
+      res.status(500).end();
     });
 };
