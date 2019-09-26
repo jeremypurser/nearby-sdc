@@ -10,10 +10,8 @@ const controller = require('./controllers.js');
 
 http.globalAgent.maxSockets = Infinity;
 https.globalAgent.maxSockets = Infinity;
-
 const app = express();
 const port = 8081;
-const host = 'localhost';
 
 app.use(express.static(path.join(__dirname, '/../public')));
 app.use(bodyParser.json());
