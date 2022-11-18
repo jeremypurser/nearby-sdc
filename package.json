@@ -71,7 +71,7 @@
     "nodemon": "^1.19.1",
     "pg-copy-streams": "^2.2.2",
     "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.9"
+    "webpack-cli": "^3.3.12"
   },
   "version": "1.0.0",
   "main": ".eslintrc.js",
