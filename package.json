@@ -67,7 +67,7 @@
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-uglify": "^4.0.1",
     "jest": "^24.9.0",
-    "mocha": "^6.2.0",
+    "mocha": "^10.2.0",
     "nodemon": "^1.19.1",
     "pg-copy-streams": "^2.2.2",
     "webpack": "^4.39.2",
